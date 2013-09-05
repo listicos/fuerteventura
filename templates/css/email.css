@@ -1,0 +1,15 @@
+#outlook a {padding:0;}
+
+body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+
+.ExternalClass {width:100%;}
+
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+
+#backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+
+img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
+
+a img {border:none;}
+
+.image_fix {display:block;}

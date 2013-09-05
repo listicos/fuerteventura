@@ -1,0 +1,77 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: Tahoma, Geneva, sans-serif !important;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a:hover, a:focus{
+    color: #10798E !important;
+    text-decoration: none !important;
+}
+a.btn.notHover:hover, a.btn.notHover:focus{
+    color: #fff !important;
+}
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
+    -moz-box-shadow: 0 0 5px rgba(66,139,202,0.7) !Important;
+    -webkit-box-shadow: 0 0 5px rgba(66,139,202,0.7) !Important;
+    box-shadow: 0 0 5px rgba(66,139,202,0.7) !Important;
+    border: 1px solid rgba(66,139,202,0.5) !Important;
+}
+/*input[type="text"], input[type="password"], select, textarea {
+    width: auto;
+    padding: 0.5em 9px;
+    font-size: 1em;
+    font-family: Open Sans, Arial, Helvetica, sans-serif;
+    color: #777;
+    border: 1px solid #D4D4D4;
+    background: #fff;
+    outline: none;
+    margin: 0 0 1em 0;
+}
+input, textarea, .button, .ui-slider, .tour-search-form, .post-tags a, .pagination span, .testimonials-slider .quote, .tour-search-form .button-container, .gallery-item .block-background, .tour-day-text .bubble-text, .select-box, .header .menu ul ul, .header .menu > ul > li > a {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}*/

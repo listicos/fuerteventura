@@ -1,0 +1,491 @@
+.parthenon-caption{
+    display: block;
+    margin-bottom: 10px;
+}
+.parthenon-caption li{
+    display: block;
+    margin-bottom: 5px;
+}
+.tour-itinerary{
+
+}
+.tour-itinerary ul{
+
+}
+
+.tour-itinerary ul li{
+    margin-bottom: 10px;
+}
+.information_detail{
+    padding: 20px;
+    background:rgba(255, 255, 255, 0.87);
+    margin-top: 20px;
+}
+#fecha .datepicker-inline, #fecha1 .datepicker-inline {
+    width: 100%;
+}
+
+#fecha .datepicker-inline table, #fecha1 .datepicker-inline table{
+    width: 100%;
+}
+#fecha .bootstrap-select:not([class*="span"]), #fecha1 .bootstrap-select:not([class*="span"]) {
+    width: 100%;
+}
+.calendar2 {
+    margin-top: 75px;
+}
+
+.calendar2 p.fechaSeleccionada, .calendar2 p.completaAhora {
+    display: none;
+}
+
+.calendar2 p.fechaSeleccionada {
+    margin-left: -13px;
+}
+
+
+.content-right {
+    text-align: right;
+}
+
+.content-center {
+    text-align: center;
+}
+
+.itinerary-content p{
+    text-align: justify;
+}
+.tour-itinerary ul li .itinerary-content{
+    padding: 15px 0;
+    /*border: 1px solid #d4d4d4;*/
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    position: relative;
+    margin: 0;
+    -moz-box-shadow: 0 0 5px rgba(66,139,202,0.5);
+    -webkit-box-shadow: 0 0 5px rgba(66,139,202,0.5);
+    box-shadow: 0 0 5px rgba(66,139,202,0.5);
+    border: 0 !important;
+}
+.detalle_carousel_inner {
+    height: 315px;
+}
+.home_carousel_inner{
+    height: 218px;
+}
+.badge-day{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #10798E;
+    color: white;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+    padding: 2px 8px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.table-accomodation{
+    width: 100%;
+}
+.table-accomodation thead{
+    font-size: 1em;
+    background: rgba(66,139,202,0.5);
+    color: #555;
+}
+.table-accomodation th, .table-accomodation td{
+    padding: 0.5em 10px;
+}
+ul.list-in-table{
+    margin: 0;   
+}
+ul.list-in-table li{
+    line-height: 15px;
+}
+#details-map-location {
+    width: 100%;
+    height: 232px;
+    border: 10px solid white;
+    -moz-box-shadow: 0 0 10px rgba(66,139,202,0.5);
+    -webkit-box-shadow: 0 0 10px rgba(66,139,202,0.5);
+    box-shadow: 0 0 10px rgba(66,139,202,0.5);
+}
+#make-question-form{
+    
+}
+#make_question_modal .modal-footer{
+    margin-top: 0;
+}
+#make-question-form input[type="text"], #make-question-form input[type="password"], #make-question-form input[type="email"], #make-question-form  textarea{
+    width: 100%;
+    -moz-box-shadow: 0 2px 4px rgba(204,204,204,0.4) inset;
+    -webkit-box-shadow: 0 2px 4px rgba(204,204,204,0.4) inset;
+    box-shadow: 0 2px 4px rgba(204,204,204,0.4) inset;
+    color: #777;
+    border: 1px solid #D4D4D4;
+    outline: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    padding: 0.5em 9px;
+}
+.content-title h3{ cursor: pointer;}
+#make-question-form textarea{
+    min-height: 150px;
+}
+#make-question-form .contact-for-inner{
+    padding: 0;
+}
+.card-message{
+padding: 10px 0;
+text-align: center;
+border-bottom: 1px solid rgba(66, 139, 202, 0.3)!important;
+color: #10798E;
+margin-bottom: 15px;
+font-size: 18px;
+}
+.bootstrap-select:not([class*="span"]) {
+    width: 100%;
+}
+.bootstrap-select.btn-group .btn .caret {
+    top: 50%;
+    margin-top: -2px;
+}
+
+#details-location {
+    margin-top: 12px;
+    padding: 13px;
+    color: #777;
+    background: #FFF;
+}
+.second_step_information{
+    display: none;
+}
+.tarifas-table  div.tarifa_container {
+    display: none;
+    border-bottom: 1px solid #ECECEC;
+    overflow: hidden;
+    margin-bottom: 7px;
+    padding-bottom: 0px;
+}
+#tarifas-table {display: none;}
+.totalEntradas{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.tarifas-table label.precio {
+    text-align: right;
+    padding-top: 8px;
+    margin-bottom: 20px;
+    padding-right: 16px;
+    font-weight: normal;
+}
+
+.tarifas-table label i {
+    text-decoration: line-through;
+    color: #E2257F; 
+}
+
+.tarifas-table label.precioConDescuento strong {
+    color: #1E751D;   
+}
+
+.tarifas-table > div.row, 
+.cupon-container > div , 
+.tota_container > div {
+    display: table;
+    width: 100%;
+    padding: 0;
+}
+
+.select-cell {
+    width: 72px;
+}
+
+.subtotal-cell {
+    width: 110px;
+}
+
+.subtotal-cell > div {
+    font-size: 10px;
+}
+.cupon_total_container{
+    color: #468847;
+    background-color: #DFF0D8;
+    border: 1px solid #D6E9C6;
+    border-radius: 4px;
+}
+.tarifas-table > div.row > div, 
+.cupon-container > div > div, 
+.tota_container > div > div {
+    display: table-row;
+}
+
+.tarifas-table > div.row > div > div,
+.cupon-container > div > div > div, 
+.tota_container > div > div > div {
+    display: table-cell;
+}
+
+.restriccionesTPV {
+    color: #657EB0;
+    min-height: 60px;
+    padding: 12px 12px 12px 30px;
+    font-size: 13px;
+    text-align: justify;
+    background-color: #F0F2F7;
+    border: 1px solid #657EB0;
+    clear: both;
+    margin-bottom: 12px;
+}
+#payment-register-form .alert{
+    padding: 15px 0px 15px 15px; 
+}
+.weather-container{
+margin-top: 20px;}
+.tota_container{
+    display: none;
+    padding-right: 5px;
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+    border-top: 1px solid #A0C7A0;
+    margin-top: 10px;
+    padding-top: 6px;
+}
+.tota_container > div{
+    
+}
+.tota_container label{
+    font-size: 20px;
+}
+.restriccionesTPV p {
+    line-height: 10px;
+}
+
+.cupon-container label, .tota_container label {
+     
+}
+
+.tota_container label.precio_total {
+    width: 100px;
+    margin-bottom: 0;
+}
+
+div.checks label {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.form_reservation{
+    background:#FFF;
+}
+#details-map-location{
+    margin-top: 20px;
+}
+
+.content-title-detalle {
+    color: #10798E;
+    margin-bottom: 5px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-bottom: 5px;
+}
+
+.question-button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#question-container {
+    display: none;
+    padding: 20px 0;
+}
+
+.tarifas-table {
+    
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.tarifas-table > div.col-lg-12.row {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+div.no-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+label.cupon {
+    padding-top: 6px; 
+    padding-right: 16px;
+}
+
+.cupon-container {
+    display: none;
+
+    padding-top: 6px;
+}
+
+#descripcion-excursion {
+    padding-bottom: 20px;
+}
+
+.fixed {
+    position: fixed;
+    width: 24%;
+    top: 0;
+}
+.recaptcha_theme_red #recaptcha_response_field{
+    line-height: 26px!important;
+}
+#recaptcha_table .recaptcha_image_cell{
+    width: 63%;
+}
+#recaptcha_table #recaptcha_image{
+width: 100%!important;
+height: auto!important;
+border: 0!important;
+}
+#recaptcha_table #recaptcha_image img{
+width: 100%!important;
+height: auto!important;
+border: 0!important;
+}
+.recaptchatable #recaptcha_response_field {
+width: 100%!important;
+-moz-box-shadow: 0 2px 4px rgba(204,204,204,0.4) inset;
+-webkit-box-shadow: 0 2px 4px rgba(204, 204, 204, 0.4) inset;
+box-shadow: 0 2px 4px rgba(204, 204, 204, 0.4) inset;
+color: #777;
+border: 1px solid #D4D4D4!important;
+outline: none;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+padding: 0.5em 9px;
+margin-top: 16px;
+}
+#captchadiv{
+    padding-top: 13px;
+}
+
+div#opiniones {
+    padding-bottom: 20px;
+}
+
+
+div.header-opiniones {
+    background-color: #D9EDF7;
+    border-radius: 4px;
+    height: 40px;
+    padding: 7px 6px;
+    vertical-align: middle;
+    color: #3A87AD;
+    border: 1px solid #BCE8F1;
+}
+
+div.header-opiniones span {
+    padding: 4px 16px 4px 4px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+div.header-opiniones span.puntuacion {
+    background-color: #3A87AD;
+    border-radius: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #ffffff;
+}
+
+div.header-opiniones span.evaluacion {
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 25px;
+}
+
+#opiniones div.row{
+    padding: 10px 2px;
+}
+
+#opiniones div.row div {
+    
+    vertical-align: top;
+    text-align: justify;
+}
+
+
+#opiniones div.row > div > div.puntuacion  {
+    width: 50px;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+    background-image: url(../imagenes/puntuation.png);
+    background-repeat: no-repeat;
+    background-position: 4px -2px;
+    text-align: center;
+    float: left;
+}
+
+#opiniones div.row > div > div.evaluacion {
+    width: 116px;
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
+    padding-left: 5px;
+}
+
+.delimiter {clear: both;}
+
+@media (max-width: 992px){
+    .form_container_main{
+        padding: 0px!important;
+    }
+    #details-map-location {
+        margin-bottom: 25px;
+    }.form_reservation,.information_detail{
+        margin-top: 20px;
+    }
+    .weather-container {
+        display: none;
+    }
+    
+    .calendar2 {
+        margin-top: 20px;
+    }
+    
+    .question-button-container {
+        margin-top: 20px;
+    }
+    
+    .tarifa_container > div, .cupon-container > div {
+        
+    }
+    
+    .tarifa_container > div.col-lg-1,  .tarifa_container > div.col-lg-2,
+    .cupon_container > div.col-lg-1,  .cupon_container > div.col-lg-2{
+        width: 16%;
+    }
+    
+    .tarifa_container > div.col-lg-9, .cupon-container > div.col-lg-9 {
+        width: 65%;
+    }
+    
+    .cupon-container a {
+        margin-left: 6px;
+    }
+    
+    #descripcion-excursion {
+        min-height: 0;
+    }
+    
+    .fixed {
+        position: inherit;
+        width: 100%;
+        
+    }
+}
