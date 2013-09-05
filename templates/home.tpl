@@ -114,16 +114,8 @@
                     <div class="col-lg-7">
                         <div class="content-title">
                             <h3>
-                                <i style="float:left;">{$excursion->nombre}</i>
-                                {if $excursion->rating > -1}
-                                <ul class="rating" title="{$excursion->rating}">
-                                    <li class="{if $excursion->rating >= 2}yellow-star{elseif $excursion->rating > 0}middle-star{/if}"></li>
-                                    <li class="{if $excursion->rating >= 3.5}yellow-star{elseif $excursion->rating > 2}middle-star{/if}"></li>
-                                    <li class="{if $excursion->rating >= 5.5}yellow-star{elseif $excursion->rating > 4}middle-star{/if}"></li>
-                                    <li class="{if $excursion->rating >= 7.5}yellow-star{elseif $excursion->rating > 6}middle-star{/if}"></li>
-                                    <li class="{if $excursion->rating > 9.5}yellow-star{elseif $excursion->rating > 8}middle-star{/if}"></li>
-                                </ul>
-                                {/if}
+                                <i class="pull-left">{$excursion->nombre}</i>
+                                <span class="badge pull-right">{$excursion->rating} Puntos</span>
                             </h3>
                             <input name="fechasDisponibles" type="hidden" value="{$excursion->fechaInicio|date_format:"%m/%d/%Y"}-{$excursion->fechaFinal|date_format:"%m/%d/%Y"}">
                             <hr class="for_double">
