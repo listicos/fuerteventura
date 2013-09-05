@@ -17,10 +17,25 @@
     <div class="row">
         <div class="col-lg-12 mrg-btn-20">
             <div class="row-fluid">
-                <ol class="breadcrumb col-lg-12">
-                  <li><a href="{$base_url}">Inicio</a></li>
-                  <li class="active">Detalle</li>
-                </ol>
+                
+                <div class="row-fluid">
+                    <div class="content-title">
+                        <input type="hidden" name="fechaSeleccionada" value="{$fechaSeleccionada}">
+                        <h3>
+                            <i class="pull-left">{$excursion->nombre}</i>
+                            {if $excursion->rating > -1}
+                                <span class="badge pull-right">{$excursion->rating} Puntos</span>
+                            {/if}
+                        </h3>
+                        <hr class="for_double">
+                    </div>
+                    
+                    <ol class="breadcrumb col-lg-12">
+                      <li><a href="{$base_url}">Inicio</a></li>
+                      <li class="active">Detalle</li>
+                    </ol>
+                </div>
+                
                 <div class="col-lg-12">
 
                     <div id="parthenon-slider" class="carousel slide">
@@ -53,22 +68,6 @@
                         <a class="right carousel-control" href="#parthenon-slider" data-slide="next">
                             <span class="icon-next"></span>
                         </a>
-                    </div>
-                </div>
-                <div class="col-lg-12 information_detail">
-                    <div class="content-title">
-                        <input type="hidden" name="fechaSeleccionada" value="{$fechaSeleccionada}">
-                        <h3><i style="float:left;">{$excursion->nombre}</i>
-                                {if $excursion->rating > -1}
-                                <ul class="rating" title="{$excursion->rating}" style="float:left;">
-                                    <li class="{if $excursion->rating >= 2}yellow-star{elseif $excursion->rating > 0}middle-star{/if}"></li>
-                                    <li class="{if $excursion->rating >= 3.5}yellow-star{elseif $excursion->rating > 2}middle-star{/if}"></li>
-                                    <li class="{if $excursion->rating >= 5.5}yellow-star{elseif $excursion->rating > 4}middle-star{/if}"></li>
-                                    <li class="{if $excursion->rating >= 7.5}yellow-star{elseif $excursion->rating > 6}middle-star{/if}"></li>
-                                    <li class="{if $excursion->rating > 9.5}yellow-star{elseif $excursion->rating > 8}middle-star{/if}"></li>
-                                </ul>
-                                {/if}<a style="float:right; margin-bottom: 10px;" id="btn-to-reserv" href="#" class="btn btn-warning notHover book-now">Reserve ahora</a></h3>
-                        <hr class="for_double">
                     </div>
                 </div>
                 <div class="col-lg-8">

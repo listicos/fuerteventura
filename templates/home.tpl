@@ -115,7 +115,9 @@
                         <div class="content-title">
                             <h3>
                                 <i class="pull-left">{$excursion->nombre}</i>
-                                <span class="badge pull-right">{$excursion->rating} Puntos</span>
+                                {if $excursion->rating > -1}
+                                    <span class="badge pull-right">{$excursion->rating} Puntos</span>
+                                {/if}
                             </h3>
                             <input name="fechasDisponibles" type="hidden" value="{$excursion->fechaInicio|date_format:"%m/%d/%Y"}-{$excursion->fechaFinal|date_format:"%m/%d/%Y"}">
                             <hr class="for_double">
@@ -139,7 +141,7 @@
                         </p>
                         
                         <a href="{$base_url}/detalle/id:{$excursion->id}/{$excursion->tituloSeo}" class="btn btn-warning notHover reservar-btn">Reserve ahora</a>
-                        <a href="#make_question_modal" class="btn btn-default notHover make_a_question" data-toggle="modal">Hacer una pregunta</a>
+                        <a href="#make_question_modal" class="notHover make_a_question" data-toggle="modal">¿Tienes alguna pregunta?</a>
                         
                     </div>
                 </div>

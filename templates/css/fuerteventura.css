@@ -15,6 +15,13 @@
 	margin-bottom: 10px;
 	padding: 7px 10px;
 }
+.tours-list .tour-item h3{
+	line-height: 24px;
+	padding-bottom: 13px;
+}
+.tours-list .tour-item .make_a_question{
+	margin-left: 10px;
+}
 .tours-list .tour-item .badge{
 	padding: 5px 13px;
 	background: #568BCE;
@@ -34,6 +41,7 @@ body{
 }
 .filter_box{
     border-top: 1px solid #CCC;
+    padding: 1px 13px;
 }
 .filter_box h4{
     border-bottom: 1px solid #CCC;
