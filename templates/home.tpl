@@ -25,8 +25,36 @@
                     </form>
                 </div>
                 <div class="clearfix"></div>
+                
+                <div class="filter_box">
+                    <h4>
+                            Filtrar excursiones
+                    </h4>
+                    <ul><li>
+                      <label class="checkbox ">
+                        <input type="checkbox" id="room_type_0" name="room_types" value="Entire home/apt">
+                        Algún tipo...
+                        <span class="badge pull-right">21</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="checkbox ">
+                        <input type="checkbox" id="room_type_1" name="room_types" value="Private room">
+                        Algún tipo...
+                        <span class="badge pull-right">8</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="checkbox ">
+                        <input type="checkbox" id="room_type_2" name="room_types" value="Shared room">
+                        Algún tipo...
+                        <span class="badge pull-right">8</span>
+                      </label>
+                    </li>
+                    </ul>
+                </div>
             </div>
-            
+
         </div>
         <div class="col-lg-9">
             
