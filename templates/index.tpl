@@ -17,6 +17,7 @@
             <link href="{$template_url}/css/toastr.css" rel="stylesheet">
             <link href="{$template_url}/css/validationEngine.jquery.css" rel="stylesheet">
             <link href="{$template_url}/css/styles.css" rel="stylesheet">
+            <link href="{$template_url}/css/fuerteventura.css" rel="stylesheet">
         {/block} 
     </head>
     <body class="">

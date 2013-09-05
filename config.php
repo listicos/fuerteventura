@@ -1,7 +1,7 @@
 <?php
 $site_title = 'Deteatros'; 
 
-$site_prefix = '/excursiones';
+$site_prefix = '/fuerteventura';
 
 $base_url = "http://" . $_SERVER['SERVER_NAME'].$site_prefix;
 $base_url_ssl = "https://" . $_SERVER['SERVER_NAME'].$site_prefix;
@@ -16,8 +16,8 @@ $distribuidor = array(
     'email' => 'excursiones_web@vikatickets.com',
     'password' => '123',
     'empresaId' => 2,
-    'canalId' => 9,
-    'edificioId' => 10
+    'canalId' => 1,
+    'edificioId' => 3
 );
 $service_url = "http://localhost/vikatickets";
 ?>
