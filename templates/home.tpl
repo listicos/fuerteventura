@@ -26,13 +26,7 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="weather-container borderBoxBlue">
-                <div id="weatherslider">
-                    <span title="Corralejo, Fuerteventura" class="ws-location">28.7361111111,-13.8677777778</span>
-                    <!--<span title="Madrid, España" class="ws-location">Madrid</span>
-                    <span title="Barcelona, España" class="ws-location">Barcelona</span>-->
-                </div>
-            </div>
+            
         </div>
         <div class="col-lg-9">
             

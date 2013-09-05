@@ -1,15 +1,27 @@
 .container.content.fullWhite{
-	background: rgba(255, 255, 255, 0.68);
+	background: rgba(255, 255, 255, 0.83);
+	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
 }
 .tours-list{
-	background: #FFF;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
 }
 .tours-list .tour-item{
-	margin: 10px;
 	-webkit-box-shadow: 0 0 10px rgba(66, 139, 202, 0.5);
 	box-shadow: 0 0 10px rgba(66, 139, 202, 0.5);
 	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+	background: #FFF;
+	margin-bottom: 10px;
+	padding: 7px 10px;
+}
+.header-slider .carousel-inner, #parthenon-slider .carousel-inner{
+	-webkit-box-shadow:0 0 2px rgba(66, 139, 202, 0.5);
+	box-shadow:0 0 2px rgba(66, 139, 202, 0.5);
+}
+.search-panel-content{
+	top:0px;
+}
+.content-title{
+	color:#000;
 }
