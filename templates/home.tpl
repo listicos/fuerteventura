@@ -30,56 +30,35 @@
                     <h4>
                             Filtrar excursiones
                     </h4>
-                    <ul><li>
+                    <ul>
+                    {foreach from=$tipos item=t}
+                    <li>
                       <label class="checkbox ">
                         <input type="checkbox" id="room_type_0" name="room_types" value="Entire home/apt">
-                        Algún tipo...
-                        <span class="badge pull-right">21</span>
+                        {$t['tipologia']->nombre}
+                        <span class="badge pull-right">{$t['cantidad']}</span>
                       </label>
                     </li>
-                    <li>
-                      <label class="checkbox ">
-                        <input type="checkbox" id="room_type_1" name="room_types" value="Private room">
-                        Algún tipo...
-                        <span class="badge pull-right">8</span>
-                      </label>
-                    </li>
-                    <li>
-                      <label class="checkbox ">
-                        <input type="checkbox" id="room_type_2" name="room_types" value="Shared room">
-                        Algún tipo...
-                        <span class="badge pull-right">8</span>
-                      </label>
-                    </li>
+                    {/foreach}
                     </ul>
                 </div>
             </div>
 
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-6">
             
-            <div class="row" style="padding-bottom: 0;padding-top: 5px;">
-                <div class="content-title">
-                    <h3>{#que_es_fuertetour#}</h5>
-                    <hr class="for_double">
+            <div class="row" style="padding-bottom: 0; padding-top: 5px;">
+                <div class="content-title col-lg-12">
                     <p>{if $edificio && $edificio->descripciones && count($edificio->descripciones) > 0}
                             {$edificio->descripciones[0]->descripcion}
                         {/if}</p>
                 </div>
             </div>
                 
-            <div class="row" style="padding-bottom: 0; padding-top: 10px;">
-                <div class="content-title">
-                    <h3>Lista de Excursiones</h5>
-                    <hr class="for_double">
-                    
-                </div>
-            </div>
-            
             <div class="tours-list">
                 {foreach from=$excursiones item=excursion name=loop_excursiones}
                 <div class="row tour-item">
-                    <div class="col-lg-5">
+                    <div class="col-lg-5 no-padding">
                         <div id="header-slider-{$smarty.foreach.loop_excursiones.iteration}" class="header-slider carousel slide">
                             <div class="carousel-inner home_carousel_inner">
                                 {if $excursion->imagenes}
@@ -131,10 +110,12 @@
                                 <div class="icon-tag"></div>
                                 <strong>Precio</strong> <a href="{$base_url}/detalle/id:{$excursion->id}/{$excursion->tituloSeo}/fecha:{$excursion->precio->fecha|date_format:"%d-%m-%Y"}" >a partir de {$excursion->precio->precio|number_format:2:',':'.'} &euro; {if $excursion->precio->fecha}({$excursion->precio->fecha|date_format}){/if}</a>
                             </li>
+                            {if !$excursion->duracionIndefinida}
                             <li>
                                 <div class="icon-time"></div>
-                                <strong>Duraci&oacute;n</strong> {$excursion->duracion}
+                                <strong>Duraci&oacute;n</strong> {if $excursion->dias eq 0}{$excursion->duracion}hrs{else}{$excursion->dias}días{/if}
                             </li>
+                            {/if}
                         </ul>
                         <p>
                             {$excursion->sinopsisCorta}
@@ -148,7 +129,26 @@
                 {/foreach}
             </div>
         </div>
-    </div>    
+        <div class="col-lg-3">
+            <div class="col-lg-12 left-panel">
+                <div class="row-fluid">
+                    <div class="weather-container borderBoxBlue">
+                        <div id="weatherslider">
+                            <span title="Corralejo, Fuerteventura" class="ws-location">28.7361111111,-13.8677777778</span>
+                            <!--<span title="Madrid, España" class="ws-location">Madrid</span>
+                            <span title="Barcelona, España" class="ws-location">Barcelona</span>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid hoteles-panel">
+
+                        <h5>Hoteles recomendados</h5>
+
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="delimiter"></div>
 </div>
 <div class="modal fade" id="make_question_modal">
     <div class="modal-dialog">

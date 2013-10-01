@@ -1,6 +1,17 @@
+div.container.global {
+    padding: 0 !important;
+}
+
+div.container.global > div.container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    border-radius: 0;
+}
+
 .container.content.fullWhite{
-	background: rgba(255, 255, 255, 0.83);
-	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+	background: #D3E6F3;
+        
 }
 .tours-list{
 	padding-top: 10px;
@@ -20,7 +31,7 @@
 	padding-bottom: 13px;
 }
 .tours-list .tour-item .make_a_question{
-	margin-left: 10px;
+	margin-left: 4px;
 }
 .tours-list .tour-item .badge{
 	padding: 5px 13px;
@@ -39,14 +50,68 @@
 	-webkit-box-shadow:0 0 2px rgba(66, 139, 202, 0.5);
 	box-shadow:0 0 2px rgba(66, 139, 202, 0.5);
 }
+
+.sup-header .carousel {
+    margin: 0;
+}
+
+.sup-header #parthenon-slider .carousel-inner {
+    border: none;
+    height: 250px;
+}
+
+.sup-header #parthenon-slider .item img {
+    min-height: 250px;
+}
+/*
+.sup-header #parthenon-slider .carousel-control {
+    border: 1px solid;
+    width: 24px;
+    height: 20px;
+    opacity: 0.8;
+    background-color: #fefefe;
+    margin-top: 110px;
+    border-radius: 2px;
+}
+
+.sup-header #parthenon-slider .carousel-control [class^="icon-"] {
+    padding-top: 5px;
+}*/
+
+.left-panel {
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding-bottom: 15px;
+    padding-top: 4px;
+}
+
+.left-panel .weather-container {
+    height: 150px;
+}
+
+.left-panel .ws-loading {
+    font-size: 12px !important;
+}
+
+.hoteles-panel h5 {
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+}
+
 .search-panel-content{
-	top:0px;
+	top: 60px;
 }
-.content-title{
-	color:#000;
+
+.hoteles-panel {
+    background-color: #D8EDF7;
+    padding: 4px 2px;
+    margin-top: 15px;
+    border-radius: 5px;
 }
+
 body{
-	background: #006EB8;
+    font-size: 13px;
 }
 .filter_box{
     border-top: 1px solid #CCC;

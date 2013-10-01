@@ -1,10 +1,10 @@
 @import "../bootstrap-glyphicons.less";
 
 body{
-    background-image: url("../imagenes/slider1.jpg");
+   /* background-image: url("../imagenes/slider1.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
     min-height: 100%;
     height: 100%;
     font-family: Tahoma, Geneva, sans-serif !important;
@@ -53,18 +53,29 @@ body{
     min-height: 100%;
 }
 .header{
-    /*padding: 2em 0;*/
+    background-color: #3F6191;
 }
 .row-full{
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
 .sup-header{
-    padding: 2em 0;
-    min-height: 150px;
+    padding: 0;
+    height: 250px;
 }
 .sub-header{
-    margin: 2em 0;
+    margin: 0;
+    height: 45px;
+    
+    color: #ffffff;
+}
+
+.sub-header h1 {
+    color: #ffffff;
+    font-size: 20px;
+    margin: 0;
+    opacity: 0.8;
+    font-weight: bold;
 }
 .header .logo img{
     position: relative;
@@ -100,23 +111,27 @@ body{
 .header .social-links a.vimeo {
     background-position: -0px -48px;
 }
-.header .nav-pills>li>a{
+.header .nav-pills > li > a{
     font-weight: bold;
     color: #fff;
-    padding: 0.2em 9px;
+    padding: 0 10px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
     line-height: 23px;
+    font-size: 12px;
 }
-.header .nav-pills>li.active>a, .header .nav-pills>li.active>a:focus, .header .nav-pills>li>a:hover{
-    color: #10798E !important;
-    background: #fff !important;
+.header .nav-pills > li.active > a, 
+.header .nav-pills > li.active > a:focus, 
+.header .nav-pills > li > a:hover {
+    color: #fff !important;
+    background: none !important;
+    text-decoration: underline !important;
 }
-.header .nav-pills>li+li {
+.header .nav-pills > li + li {
     margin-left: 6px;
 }
-.header .dropdown-menu>li>a{
+.header .dropdown-menu > li > a {
     font-weight: bold;
     color: #959595;
 }
@@ -279,6 +294,8 @@ body{
     margin-bottom: 5px;
     padding-bottom: 5px;
     color: #10798E;
+    font-size: 14px;
+    text-align: justify;
 }
 .content-title hr.for_double{
     border-top: 1px solid #10798E;
@@ -534,8 +551,8 @@ hr.for_double{
     width: 100%;
     margin: 0px;
     max-width: 100%;
-    margin-top: 40px;
-    border-top: 4px solid #FFF;
+    margin-top: 0;
+    border-top: 1px solid #FFF;
 }
 .footer .menu{
 
@@ -674,6 +691,6 @@ ul.rating li.yellow-star {
 }
 @media (max-width: 992px){
     .content-title{
-        margin-top: 15px;
+        margin-top: 60px;
     }
 }
