@@ -10,7 +10,7 @@ $result = json_decode($result);
 $excursiones = $result->data;
 
 $tipologias = array();
-
+if ($excursiones)
 foreach ($excursiones as $e) {
     if(!isset($tipologias[$e->tipologiaId]))
         $tipologias[$e->tipologiaId] = array('tipologia' => $e->tipologia, 'cantidad' => 0);

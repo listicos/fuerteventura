@@ -43,10 +43,23 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-lg-12 left-panel">
+                <div class="row-fluid">
+                    <div class="weather-container borderBoxBlue">
+                        <div id="weatherslider">
+                            <span title="Corralejo, Fuerteventura" class="ws-location">28.7361111111,-13.8677777778</span>
+                            <!--<span title="Madrid, España" class="ws-location">Madrid</span>
+                            <span title="Barcelona, España" class="ws-location">Barcelona</span>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid hoteles-panel">
 
-        </div>
-        <div class="col-lg-6">
-            
+                        <h5>Hoteles recomendados</h5>
+                </div>
+            </div>      
+             </div>
+        <div class="col-lg-9">      
             <div class="row" style="padding-bottom: 0; padding-top: 5px;">
                 <div class="content-title col-lg-12">
                     <p>{if $edificio && $edificio->descripciones && count($edificio->descripciones) > 0}
@@ -129,25 +142,8 @@
                 {/foreach}
             </div>
         </div>
-        <div class="col-lg-3">
-            <div class="col-lg-12 left-panel">
-                <div class="row-fluid">
-                    <div class="weather-container borderBoxBlue">
-                        <div id="weatherslider">
-                            <span title="Corralejo, Fuerteventura" class="ws-location">28.7361111111,-13.8677777778</span>
-                            <!--<span title="Madrid, España" class="ws-location">Madrid</span>
-                            <span title="Barcelona, España" class="ws-location">Barcelona</span>-->
-                        </div>
-                    </div>
-                </div>
-                <div class="row-fluid hoteles-panel">
-
-                        <h5>Hoteles recomendados</h5>
-
-                </div>
-            </div>
-        </div>
-    </div>
+       </div>
+    
             <div class="delimiter"></div>
 </div>
 <div class="modal fade" id="make_question_modal">
