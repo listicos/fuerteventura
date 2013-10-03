@@ -47,7 +47,7 @@
 </ul>
                 </div>
             </div>
-              <div class="col-sm-5">
+              <div class="col-xs-5 col-xs-offset-2">
               <div class="menu pull-right">
              <div class="btn-group">
                        
