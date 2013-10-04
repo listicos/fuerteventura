@@ -1,5 +1,5 @@
 <?php
-
+/*
 include_once dirname(__FILE__) . '/../Lib/phpmailer/phpmailer.inc.php';
 
 class Core_Mailer {
@@ -53,6 +53,6 @@ class Core_Mailer {
         $mailer->FromName = trim(FROM_NAME);
     }
 
-}
+}*/
 
 ?>
