@@ -36,23 +36,39 @@
     </div>
     <div class="row-fluid sub-header">
         <div class="row-fluid site-name">
-            <div class="col-sm-6 col-xs-4"></div>
-            <div class="col-sm-6 col-xs-8">
-                <h1>fuerteventuraexcursion.com</h1>
-            </div>
+           
             <div class="col-sm-6">
                 <div class="menu pull-right">
-                    <ul class="nav nav-pills menuHeader" id="menu-header">
-                        <li><a href="">Inicio</a></li>
-                        <li><a href="">Excursiones</a></li>
-                        <li><a href="">Hoteles</a></li>
-                        <li><a href="">Contacto</a></li>
-                    </ul>
+                   <ul class="nav nav-tabs">
+  <li class="active"><a href="#">Inicio</a></li>
+  <li><a href="#">Excursiones</a></li>
+  <li><a href="#">Hoteles</a></li>
+  <li><a href="">Contacto</a></li>
+</ul>
                 </div>
             </div>
+              <div class="col-xs-5 col-xs-offset-2">
+              <div class="menu pull-right">
+             <div class="btn-group">
+                       
+                          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                            <span class="lang_text">Español</span>
+                          </button>
+                          <ul class="dropdown-menu dropdown_lang" role="menu">
+                            <li class="active"><a data-lang="es" href="#">Español</a></li>
+                            <li><a data-lang="de" href="#">Deutsch</a></li>
+                            <li><a data-lang="en" href="#">English</a></li>
+                            <li><a data-lang="fr" href="#">Français</a></li>
+                            <li><a data-lang="it" href="#">Italiano</a></li>
+                          </ul>
+                         </div>
+                        </div>
+                 </div>      
+
             <div class="col-sm-3"></div>
             <div class="col-sm-3"></div>
         </div>
     </div>
                         
 </div>
+

@@ -65,8 +65,8 @@ body{
 }
 .sub-header{
     margin: 0;
-    height: 45px;
-    
+    height: 40px;
+    margin-top: 10px;
     color: #ffffff;
 }
 
@@ -133,7 +133,7 @@ body{
 }
 .header .dropdown-menu > li > a {
     font-weight: bold;
-    color: #959595;
+   
 }
 .header .dropdown-menu>li>a:hover{
     color: #FFF !important;
@@ -305,7 +305,7 @@ body{
 }
 .content .row, .content-block {
     padding: 2.5em 0 3em 0;
-    max-width: 1140px;
+    max-width: 1283px;
     margin: 0 auto;
     /*position: relative;
     z-index: 100;*/
@@ -693,4 +693,7 @@ ul.rating li.yellow-star {
     .content-title{
         margin-top: 60px;
     }
+}
+.nav-tabs{
+    border-bottom: none;
 }
