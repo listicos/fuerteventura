@@ -1,5 +1,6 @@
 var FECHAS_DISPONIBLES = new Array();
 var map;
+var DESCUENTO_CUPON = 0;
 var myLatlng = new google.maps.LatLng("40.4216737855101","-3.7001175433777");
 
 function initialize() {
@@ -9,7 +10,7 @@ function initialize() {
         myLatlng = new google.maps.LatLng(lat,lon);
     }
     var mapOptions = {
-        zoom: 10,
+        zoom: 15,
         center: myLatlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
@@ -30,20 +31,27 @@ function showRecaptcha() {
 $(document).ready(function(){
     
     initialize();
-    showRecaptcha();
+    if($('#captchadiv').length > 0)
+        showRecaptcha();
     google.maps.event.trigger(map, 'resize');
     map.setCenter(myLatlng);
-    $('#blocker').fadeOut('slow');
+    $('#blocker').slideUp('fast');
     
     $('.selectpicker').selectpicker();
-    
+    var menorFecha = 0;
     $('#fechas option').each(function(){
         var fecha_disponible =  new Date($(this).attr('value'));
-        if(fecha_disponible)
-        RANGOS_FECHAS_DISPONIBLES.push(fecha_disponible.getTime());
+        if(fecha_disponible) {
+            RANGOS_FECHAS_DISPONIBLES.push(fecha_disponible.getTime());
+            if(menorFecha == 0 || menorFecha > fecha_disponible.getTime())
+                menorFecha = fecha_disponible.getTime();
+        }
     });
-
-    $('#fecha').datepicker({format:'dd/mm/yyyy',
+    if(menorFecha == 0) menorFecha = new Date().getTime();
+    $('#fecha').datepicker({
+        format:'dd/mm/yyyy',
+        language: LANGUAGE,
+        startDate: new Date(menorFecha),
         beforeShowDay: function (date){
             return RANGOS_FECHAS_DISPONIBLES.indexOf(date.getTime()) !== -1 ;
         }
@@ -61,7 +69,7 @@ $(document).ready(function(){
         $('#' + id + '_modal').modal();
     });
     
-    scrollMap();
+    //scrollMap();
     
     var fechaSeleccionada = $('input[name=fechaSeleccionada]').val();
     
@@ -73,7 +81,15 @@ $(document).ready(function(){
         $('#fecha td.day:contains(' + parseInt(fecha[0]) + '):not(.disabled)').each(function(){
             
             if($(this).html() == parseInt(fecha[0]) ) {
-                $(this).addClass('active');                
+                $(this).click();                
+            }
+        })
+    } else {
+        var fecha = new Date(menorFecha);
+        $('#fecha td.day:contains(' + fecha.getDate() + '):not(.disabled)').each(function(){
+            
+            if($(this).html() == fecha.getDate() ) {
+                $(this).click();                
             }
         })
     }
@@ -84,6 +100,44 @@ $(document).ready(function(){
         $('html, body').animate({scrollTop:top}, 500);
     })
     
+    if($('input[name=fechaExpiracion]').length > 0) {
+        $('input[name=fechaExpiracion]').datepicker({
+            format:'dd/mm/yyyy',
+            startDate:new Date()
+        });
+    }
+    cardValidation();
+    
+    $('input[name=email]').on('change', function(){
+        var mail = $(this).val();
+        $('#enviaremos-email').html(mail);
+    });
+    /*
+    var name_has_change = false;
+    $('#nombre').on('change',function(){
+        if(!name_has_change){
+            $('#BillingFirstnames').val($(this).val());
+        }
+    });
+    $('#BillingFirstnames').on('change',function(){
+        name_has_change = true;
+    });
+
+    var surname_has_change = false;
+    $('#apellido').on('change',function(){
+        if(!surname_has_change){
+            $('#BillingSurname').val($(this).val());
+        }
+    });
+    $('#BillingSurname').on('change',function(){
+        surname_has_change = true;
+    });
+*/
+
+    cuponFunction();
+    
+    rating();
+
 });
 
 function questionFunctions() {
@@ -97,6 +151,7 @@ function questionFunctions() {
         var form = $('#make-question-form');
         var valid = form.validationEngine('validate');
         if(valid) {
+            $('#blocker').fadeIn('slow');
             var data = form.serialize();
             $.ajax({
                 url: BASE_URL + '/ajax-reservacion',
@@ -104,8 +159,13 @@ function questionFunctions() {
                 dataType: 'json',
                 data: data,
                 success: function(response) {
-                    toastr.success('Se ha enviado su pregunta');
-                    $('#question-container').slideUp(500);
+                    $('#blocker').fadeOut('slow');
+                    if(response.result == 'ok') {
+                        toastr.success('Se ha enviado su pregunta');
+                        $('#question-container').slideUp(500);
+                    } else {
+                        toastr.error(response.msg);
+                    }
                 }
             });
         }
@@ -115,25 +175,47 @@ function questionFunctions() {
 function reservacionFunctions() {
     
     $('#payment-register-form').off('submit').on('submit', function(e){
-        e.preventDefault();
         
-
+        
         var valid = $(this).validationEngine('validate');
         var data = $(this).serialize();
         if(valid) {
             $('.second_step_information input[type="submit"]').addClass('disabled');
-            $('#blocker').fadeIn('slow');
+            $('#blocker').slideDown('fast');
+            
+            if($('#forma_pago').val()=='Online' && $('input[name=onRequest]').val() != '1'){
+                //Pago Caixa
+                //var win=window.open(BASE_URL+'/cargando','tpv','width=725,height=600,scrollbars=no,resizable=yes,status=yes,menubar=no,location=no');
+                //Termina pago Caixa
+            }
+
             $.ajax({
                 url: BASE_URL + '/ajax-reservacion',
                 type: 'post',
                 dataType: 'json',
                 data: data,
                 success: function(response) {
-                    $('.second_step_information input[type="submit"]').removeClass('disabled');
-                    $('#blocker').fadeOut('slow');
+                    
+                    
+                    if($('#forma_pago').val()=='Online' && response.order && $('input[name=onRequest]').val() != '1'){
+                        //Pago Caixa
+                        $('.order').val(response.order);
+                        $('.signature').val(response.signature);
+                        $('#caixa_pago_form').submit();
+                        //Termina pago Caixa
+                    }else{
+                        $('.second_step_information input[type="submit"]').removeClass('disabled');
+                        $('#blocker').slideUp('slow');
+                    }
+
                     if(response.result == 'ok') {
+                        
                         toastr.success(response.msg);
-                        $('#payment-register-form input[type="text"]').val('');
+                        setTimeout(function(){
+                           $(window).attr('location', BASE_URL + '/confirmacion/codigo:' + response.data.codigo);
+                        }, 2000);
+                        
+
                     } else {
                         toastr.error(response.msg);
                          var top = $('#payment-register-form .second_step_information').offset().top;
@@ -141,10 +223,13 @@ function reservacionFunctions() {
                     }
                 },
                 error: function(ev) {
+                    $('.second_step_information input[type="submit"]').removeClass('disabled');
+                    $('#blocker').fadeOut('slow');
                     console.log(ev);
                 }
             });
         }
+        e.preventDefault();
         
     });
     
@@ -181,6 +266,19 @@ function fechasTarifasFunctions() {
         $('.calendar2 p.fechaSeleccionada span').html(fechaMostrar);
         $('p.completaAhora, p.fechaSeleccionada', '.calendar2').show();
         
+        var sesiones = $('.sesionesTarifas[tarifa-id=' + tarifa + ']').html();
+        if(sesiones.trim().length > 0) {
+            $('p.horaSeleccionada select', '.calendar2').prop('disabled', false).html('');
+            sesiones = sesiones.split(',');
+            for(i=0;i<sesiones.length; i++) {
+                $('p.horaSeleccionada select', '.calendar2').append('<option value="' + sesiones[i].trim() + '">' + sesiones[i].trim() + '</option>');
+            }
+            $('p.horaSeleccionada', '.calendar2').show();
+        } else {
+            $('p.horaSeleccionada', '.calendar2').hide();
+            $('p.horaSeleccionada select', '.calendar2').prop('disabled', true);
+        }
+        
     });
     
     $('.tarifas-table select').off('change').on('change', function(e){
@@ -193,6 +291,7 @@ function fechasTarifasFunctions() {
     $('.tarifas-table select').each(function(e){
         var entradas = $(this).val();
         var costo = $(this).attr('precio');
+
         $(this).parent().parent().find('label.totalEntradas strong').html(formatEuro(1 * entradas * costo));
     });
     
@@ -235,7 +334,25 @@ function calcularTotal() {
     //$('div.tarifas-table div.totalEntradasTarifa label.precio span').html(totalEntradas);
     $('.tota_container').slideDown('fast');
     $('.cupon-container').slideDown('fast');
-    $('label.precio_total').html(formatEuro(totalPrecio));
+    if (DESCUENTO_CUPON > 0) {
+        var realPrecio = totalPrecio - (totalPrecio * DESCUENTO_CUPON / 100);
+        $('label.precio_total, span#confirmar-total').html("<s>" + formatEuro(totalPrecio) + "</s><br> -" + formatEuro(totalPrecio * DESCUENTO_CUPON / 100) + "<br><hr style='margin: 0; border: 1px solid #cecece;'> " + formatEuro(realPrecio));
+        totalPrecio = realPrecio;
+    } else {
+        $('label.precio_total, span#confirmar-total').html(formatEuro(totalPrecio));
+    }
+    
+    if($('#confirmar-total').length > 0) {
+        if($('#porcientoAdelanto').length > 0) {
+            var descuento = parseFloat($('#porcientoAdelanto').html());
+            $('#pagoAdelantado').html(formatEuro(totalPrecio * descuento / 100));
+            $('.amount').val(totalPrecio * descuento);
+            if($('input[name=onRequest]').val() != '1')
+                $('#total_reservar_button').val('✓ Realizar pago de '+formatEuro(totalPrecio * descuento / 100));
+        } else {
+            $('.amount').val(totalPrecio);
+        }
+    }
 }
 
 function formatEuro(cant) {
@@ -273,6 +390,99 @@ function scrollMap() {
         else if ($('#mapa').hasClass('fixed') && windowTop <= mapY ) {
             $('#mapa').removeClass('fixed');
         }
+    });
+}
+
+function cardValidation() {
+    
+    var cards = new Array();
+    $('ul.cards li').each(function(){
+        
+        cards.push($(this).attr('card'));
+    });
+    
+    if($('input[name=CardNumber]').length > 0) {
+        $('input[name=CardNumber]').attr('valid-card', false);
+        $('input[name=CardNumber]').validateCreditCard(function(ev){
+                $(".cards li").addClass("off");
+                $('input[name=CardNumber]').removeClass('validCreditCard');
+                if(ev.card_type==null){
+                        $('input[name=CardNumber]').attr('valid-card', false);
+                        $('input[name=CardType]').val('');
+                        return
+                }
+                $(".cards ." + ev.card_type.name).removeClass("off");
+                $('input[name=CardType]').val($(".cards ." + ev.card_type.name).attr('title'));
+                if(ev.length_valid && ev.luhn_valid) {                
+                     $('input[name=CardNumber]').attr('valid-card', true).addClass('validCreditCard');
+                     
+                     return true;
+                }
+                return false;
+        },
+        {accept:cards}
+        );
+    }
+    
+}
+
+function cuponFunction() {
+    $('input[name=cupon]').on('change', function(){
+        if(DESCUENTO_CUPON > 0) {
+            DESCUENTO_CUPON = 0;
+            calcularTotal();
+        }
+    })
+    $('#validar_cupon').on('click', function(e){
+        e.preventDefault();
+        var cupon = $('input[name=cupon]').val();
+        var tarifaId = $('#tarifa').val();
+        var sesion = $('#sesion').val();
+        var fecha = $('[name=fecha]').val();
+        if(cupon.trim().length > 0 && tarifaId.trim().length > 0 && fecha.trim().length > 0) {
+            var data = { 
+                codigo: cupon,
+                tarifaId: tarifaId,
+                sesion: sesion,
+                fecha: fecha,
+                action: 'validarCupon'
+            };
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                data: data,
+                url : BASE_URL + '/ajax-reservacion',
+                success: function(response) {
+                    if(response.result == 'ok') {
+                        toastr.success('El código es válido');
+                        DESCUENTO_CUPON = parseFloat(response.data.descuento);
+                        calcularTotal();
+                    } else {
+                        toastr.error('El código no es válido');
+                        if(DESCUENTO_CUPON > 0) {
+                            DESCUENTO_CUPON = 0;
+                            calcularTotal();
+                        }
+                    }
+                }
+            })
+        }
+    });
+}
+
+function rating() {
+    
+    $('.excursion-rating').each(function(){
+        $(this).raty({
+            starOn: BASE_URL + '/templates/imagenes/star-on-big.png',
+            starOff: BASE_URL + '/templates/imagenes/star-off-big.png',
+            starHalf: BASE_URL + '/templates/imagenes/star-half-big.png',
+            width: false,  
+            space: false,
+            hints: EVALUACIONES,
+            score: $(this).attr('puntuacion'),
+            readOnly: true
+        });
     });
 }
 

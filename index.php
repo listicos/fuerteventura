@@ -33,6 +33,11 @@ if($usuario){
 	$smarty->assign('logged_user',$usuario);
 }
 
+$uri = $_SERVER['REQUEST_URI'];
+$uri = explode('/', $uri);
+$uri = $uri[2];
+
+$smarty->assign('current_uri', $uri);
 
 $includes = $controller->getFileAction();
 if (is_file($includes)) {

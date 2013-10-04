@@ -40,10 +40,10 @@
             <div class="col-sm-6">
                 <div class="menu pull-right">
                    <ul class="nav nav-tabs">
-  <li class="active"><a href="#">Inicio</a></li>
-  <li><a href="#">Excursiones</a></li>
-  <li><a href="#">Hoteles</a></li>
-  <li><a href="">Contacto</a></li>
+  <li {if strlen($current_uri) == 0}class="active"{/if}><a href="{$base_url}">Inicio</a></li>
+  <li {if $current_uri eq 'detalles'}class="active"{/if}><a href="#">Excursiones</a></li>
+  <li {if $current_uri eq 'hoteles'}class="active"{/if}><a href="#">Hoteles</a></li>
+  <li {if $current_uri eq 'contacto'}class="active"{/if}><a href="{$base_url}/contacto">Contacto</a></li>
 </ul>
                 </div>
             </div>

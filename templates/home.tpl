@@ -34,7 +34,7 @@
                     {foreach from=$tipos item=t}
                     <li>
                       <label class="checkbox ">
-                        <input type="checkbox" id="room_type_0" name="room_types" value="Entire home/apt">
+                        <input type="checkbox" id="room_type_0" name="room_types" value="{$t['tipologia']->id}">
                         {$t['tipologia']->nombre}
                         <span class="badge pull-right">{$t['cantidad']}</span>
                       </label>
@@ -72,7 +72,7 @@
                 
             <div class="tours-list">
                 {foreach from=$excursiones item=excursion name=loop_excursiones}
-                <div class="row tour-item">
+                <div class="row tour-item tipologia-{$excursion->tipologiaId}">
                     <div class="col-lg-5 no-padding">
                         <div id="header-slider-{$smarty.foreach.loop_excursiones.iteration}" class="header-slider carousel slide">
                             <div class="carousel-inner home_carousel_inner">
@@ -113,7 +113,15 @@
                                     <span class="badge pull-right">{$excursion->rating} Puntos</span>
                                 {/if}
                             </h3>
-                            <input name="fechasDisponibles" type="hidden" value="{$excursion->fechaInicio|date_format:"%m/%d/%Y"}-{$excursion->fechaFinal|date_format:"%m/%d/%Y"}">
+                            <select name="fechasDisponibles" class="hidden" >
+                                {foreach from=$excursion->tarifas item=tarifa}
+                                    {foreach from=$tarifa->fechas item=fecha}
+                                        <option value="{$fecha->fecha|date_format:"%m/%d/%Y"}">
+                                            {$fecha->fecha|date_format:"%m/%d/%Y"}
+                                        </option>
+                                    {/foreach}
+                                {/foreach}
+                            </select>
                             <hr class="for_double">
                         </div>
                         <ul class="parthenon-caption">

@@ -12,15 +12,7 @@
 
 {block name="content" append}
 
-<div class="container content map-location fullWhite">
-    <div class="row">
-            <ol class="breadcrumb">
-          <li><a href="{$base_url}">Inicio</a></li>
-          <li class="active">Contacto</li>
-        </ol>
-        <div id="contact-map"></div>
-    </div>    
-</div>
+
 
 <div class="container content contact fullWhite">
     <div class="row">

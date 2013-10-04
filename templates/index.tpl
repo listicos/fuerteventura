@@ -32,14 +32,10 @@
             {include file="footer.tpl"}
             
             <script type="text/javascript">
-    
                 BASE_URL = "{$base_url}";
-                /*DISTRIBUIDOR = new Object();
-                DISTRIBUIDOR.EMAIL = '{$distribuidor['email']}';
-                DISTRIBUIDOR.PASSWORD = '{$distribuidor['password']}';*/
                 var FECHAS_DISPONIBLES = new Array();
                 var RANGOS_FECHAS_DISPONIBLES = new Array();
-        
+                var LANGUAGE = "{$lang}";
             </script>
         </div>
 
@@ -56,6 +52,7 @@
             <script src="{$template_url}/js/jquery.validationEngine.js"></script>
             <script src="{$template_url}/js/jquery-animate-background-position.js"></script>
             <script src="{$template_url}/js/weatherslider.kreaturamedia.jquery.js"></script>
+            <script src="{$template_url}/js/main.js"></script>
         {/block}   
         
     </body>

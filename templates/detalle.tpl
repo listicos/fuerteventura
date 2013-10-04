@@ -10,350 +10,475 @@
     <script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
     <script type="text/javascript" src="{$template_url}/js/home.js"></script> 
     <script type="text/javascript" src="{$template_url}/js/detalle.js"></script> 
+    <script type="text/javascript" src="{$template_url}/js/jquery.creditCardValidator.js"></script>
+    <script type="text/javascript" src="{$template_url}/js/jquery.raty.min.js"></script>
 {/block}
 
 {block name="content" append}
-<div class="container content home fullWhite" style="background-color: #fff;">
+<div class="container content home fullWhite" style="background-color: #ffffff; font-size: 14px;">
     <div class="row">
         <div class="col-lg-12 mrg-btn-20">
             <div class="row-fluid">
                 
-                <div class="row-fluid">
-                    <div class="content-title">
-                        <input type="hidden" name="fechaSeleccionada" value="{$fechaSeleccionada}">
-                        <h3>
-                            <i class="pull-left">{$excursion->nombre}</i>
-                            {if $excursion->rating > -1}
-                                <span class="badge pull-right">{$excursion->rating} Puntos</span>
-                            {/if}
-                        </h3>
-                        <hr class="for_double">
-                    </div>
-                    
-                    <ol class="breadcrumb col-lg-12">
-                      <li><a href="{$base_url}">Inicio</a></li>
-                      <li class="active">Detalle</li>
-                    </ol>
-                </div>
-                
-                <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-6">
 
-                    <div id="parthenon-slider" class="carousel slide">
-                        <div class="carousel-inner detalle_carousel_inner">
-                            {if $excursion->imagenes}
-                            {foreach name=loop_imagenes from=$excursion->imagenes item=imagen}
-                            <div class="item {if $smarty.foreach.loop_imagenes.first}active{/if}">
-                                <img src="{$imagen->ruta}" alt="Photo {$smarty.foreach.loop_imagenes.iteration}">
-                                <div class="carousel-caption">
-
-                                </div>
-                            </div>
-                            {/foreach}
-                            {else}
-                                <div class="item active">
-                                    <img src="{$template_url}/imagenes/slider1.jpg" alt="Photo 1">
+                        <div id="parthenon-slider" class="carousel slide">
+                            <div class="carousel-inner detalle_carousel_inner">
+                                {if $excursion->imagenes}
+                                {foreach name=loop_imagenes from=$excursion->imagenes item=imagen}
+                                <div class="item {if $smarty.foreach.loop_imagenes.first}active{/if}">
+                                    <img src="{$imagen->ruta}" alt="Photo {$smarty.foreach.loop_imagenes.iteration}">
                                     <div class="carousel-caption">
 
                                     </div>
                                 </div>
-                            {/if}
-                            
-                        </div>
-                        <div class="back-images layer-1"></div>
-                        <div class="back-images layer-2"></div>
+                                {/foreach}
+                                {else}
+                                    <div class="item active">
+                                        <img src="{$template_url}/imagenes/slider1.jpg" alt="Photo 1">
+                                        <div class="carousel-caption">
 
-                        <a class="left carousel-control" href="#parthenon-slider" data-slide="prev">
-                            <span class="icon-prev"></span>
-                        </a>
-                        <a class="right carousel-control" href="#parthenon-slider" data-slide="next">
-                            <span class="icon-next"></span>
-                        </a>
+                                        </div>
+                                    </div>
+                                {/if}
+                                
+                            </div>
+                            <div class="back-images layer-1"></div>
+                            <div class="back-images layer-2"></div>
+
+                            <a class="left carousel-control" href="#parthenon-slider" data-slide="prev">
+                                <span class="icon-prev"></span>
+                            </a>
+                            <a class="right carousel-control" href="#parthenon-slider" data-slide="next">
+                                <span class="icon-next"></span>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="content-title">
+                            <input type="hidden" name="fechaSeleccionada" value="{$fechaSeleccionada}">
+                            <input type="hidden" name="onRequest" value="{$excursion->onRequest}">
+                            <h3>
+                                <i style="float:left;">{$excursion->nombre}</i>
+                                    {if $excursion->rating > 0}
+                                    <div class="excursion-rating" puntuacion="{$excursion->rating}"></div>
+                                    {/if}
+                                    
+                                    <br />
+                            </h3>
+                        </div>
+                        <div id="descripcion-excursion">
+                            <ul class="parthenon-caption">
+                                <li>
+                                    <div class="icon-map-marker"></div>
+                                    <strong>{#destino#}</strong> {$excursion->direccion->descripcion}
+                                </li>
+                                
+                                <li>
+                                    <div class="icon-tag"></div>
+                                    <strong>{#precio#}</strong> {#a_partir_de#} <strong>{$excursion->precio->precio|number_format:2:',':'.'}&euro;</strong>
+                                </li>
+                                {if !$excursion->duracionIndefinida}
+                                <li>
+                                    <div class="icon-time"></div>
+                                    <strong>{#duracion#}</strong> {if $excursion->dias eq 0}{$excursion->duracion|date_format:"%H:%M"}hrs{else}{$excursion->dias}días{/if}
+                                </li>
+                                {/if}
+                                <input type="hidden" name="lat" value="{$excursion->direccion->lat}">
+                                <input type="hidden" name="lon" value="{$excursion->direccion->lon}">
+                            </ul>
+                            <p>
+                                {if $excursion->sinopsis->$lang}
+                                    {$excursion->sinopsis->$lang}
+                                {else}
+                                    {$excursion->sinopsis->es}
+                                {/if}
+                            </p>                    
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div id="descripcion-excursion">
-                    <ul class="parthenon-caption">
-                        <li>
-                            <div class="icon-map-marker"></div>
-                            <strong>Destino</strong> {$excursion->direccion->descripcion}
-                        </li>
-                        
-                        <li>
-                            <div class="icon-tag"></div>
-                            <strong>Precio</strong> a partir de {$excursion->precio->precio|number_format:2:',':'.'}&euro;
-                        </li>
-                        <li>
-                            <div class="icon-time"></div>
-                            <strong>Duraci&oacute;n</strong> {$excursion->duracion}
-                        </li>
-                        <input type="hidden" name="lat" value="{$excursion->direccion->lat}">
-                        <input type="hidden" name="lon" value="{$excursion->direccion->lon}">
-                    </ul>
-                    <p>
-                        {$excursion->sinopsis}
-                    </p>                    
+                    <div class="borderBoxBlue form_reservation clearfix">
+                        <form id="payment-register-form" method="POST">
+                            <input type="hidden" name="action" value="insertReservacion">
+                            <input type="hidden" name="eventoId" value="{$excursion->id}">
+                            <input type="hidden" name="current_url" value=''>
+                            <h5 class="card-message">{#complete_los_datos_de_la_reservacion#}</h5>
+                            <div class="form-group row">
+                                <div class="col-lg-6">
+                                    <div id="fecha"></div>
+                                    <input class="btn-box-text hidden" type="text" name="fecha" value="{$fechaSeleccionada|date_format:"%d/%m/%Y"}" />
+                                    <select name="fechas" id="fechas" class="hidden">
+                                        {foreach from=$excursion->tarifas item=tarifa}
+                                            {foreach name=fechas from=$tarifa->fechas item=fecha}
+                                                <option value="{$fecha->fecha|date_format:"%m/%d/%Y"}" tarifa-id="{$tarifa->id}">{$fecha->fecha|date_format:"%m/%d/%Y"}</option>
+                                            {/foreach}
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 calendar2">
+                                    <div class="alert alert-success">
+                                        <h4>{#cuando_quieres_ir#}</h4>
+                                        <p class="seleccionaFecha">← {#seleccione_una_fecha_disponible#}</p>
+                                        <p class="fechaSeleccionada"><img src="{$template_url}/imagenes/mini_checkList.png"> <span></span></p>
+                                        <p class="horaSeleccionada"><img src="{$template_url}/imagenes/mini_checkList.png"> ¿A qu&eacute; hora? <span><select name="sesion" id="sesion"></select></span></p>
+                                        <p class="completaAhora">{#completa_los_datos_de_tu_reserva#}</p>
+                                    </div> 
+                                </div>
+                                </div>
+
+                        <div class="row-fluid second_step_information col-lg-12">
+
+                                <div class="row-fluid">
+                                    <div id="tarifas-table" class="form-group tarifas-table form-horizontal">
+                                      
+                                      <div class=" row">  
+                                        {foreach from=$excursion->tarifas item=tarifa}
+                                            {foreach from=$tarifa->zonas item=zona name=zonas}
+                                                    <div class=" tarifa_container" tarifa-id="{$tarifa->id}">
+                                                        <div class=" content-right">
+                                                            <label class="precio" for="entradas[{$zona->entrada->id}]">
+                                                                [{$zona->entrada->descripcion}] <strong>{$zona->entrada->nombre}</strong>
+                                                           </label>
+                                                           </div>
+                                                           <div class="select-cell no-padding">
+                                                            <select name="entradas[{$zona->id}]" precio="{$zona->total}" class="form-control" style="width:82px">
+                                                                {foreach from=$cantidades item=c} 
+                                                                    {if !$zona->entrada->limitacionVenta || $zona->entrada->limitacionVenta >= $c}
+                                                                    <option value="{$c}" {if ($c eq 1 && $smarty.foreach.zonas.first) || ($c eq 0 && !$smarty.foreach.zonas.first)}selected=""{/if} >{$c}</option>            
+                                                                    {/if}
+                                                                {/foreach}
+                                                            </select>
+
+                                                        </div>
+
+                                                        <div class="subtotal-cell no-padding content-center">
+                                                             <label class="precioConDescuento"><strong></strong></label> 
+                                                             <label class="totalEntradas"><strong></strong></label>
+                                                        </div>
+
+                                                    </div>
+                                            {/foreach}
+                                        {/foreach}
+
+                                         </div>
+                                    </div>
+                                    <div class="cupon_total_container">
+                                        <div class="row-fluid cupon-container">
+                                            <div>
+                                                <div>
+                                                    <div class=" content-right">
+                                                        <label class="cupon">{#tienes_un_cupon_promocional#}</label>
+                                                    </div>
+                                                    <div class="select-cell content-right no-padding">
+                                                        <input style="margin: 0; width: 90px; padding: 7px 4px;" class="btn-box-text " type="text" name="cupon"  />
+                                                    </div>
+                                                    <div class="subtotal-cell content-center no-padding">
+                                                        <a id="validar_cupon" class="btn btn-warning notHover" href="javascript:void(0)">{#validar#}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row-fluid tota_container">
+                                            <div class=" text-right no-padding">
+                                                <div>
+                                                    <div>&nbsp;</div>
+                                                    <div class="select-cell">
+                                                    <label>{#total#}:</label>
+                                                    </div>
+                                                    <div class="subtotal-cell content-center" ><label class="precioConDescuento"><strong></strong></label>
+                                                    <label class="precio_total"><strong></strong></label>
+                                                    <div>{#impuestos_incluidos#}</div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <select name="tarifaId" id="tarifa" class="btn-box-text hidden">
+                                        <option selected disabled>{#seleccione_tarifa#}</option>
+                                        {foreach from=$excursion->tarifas item=tarifa}                                    
+                                            <option value="{$tarifa->id}">{$tarifa->nombre}</option>                                    
+                                        {/foreach}
+                                    </select>
+                                
+                            </div>
+
+                           <h5 class="card-message" style="clear: both;">{#completa_los_datos_de_su_cuenta#}</h5>
+                           <div class="form-group row">
+                                <div class="col-lg-6 form-group">
+                                    <label for="nombre">{#nombre#}</label>
+                                    <input class="form-control validate[required]" type="text" name="nombre" id="nombre" placeholder="{#nombre#}"  x-webkit-speech/>
+                                </div>
+
+                                <div class="col-lg-6 form-group">
+                                    <label for="apellido">{#apellido#}</label>
+                                    <input class="form-control validate[required]" type="text" name="apellidoPaterno" id="apellido" placeholder="{#apellido#}" x-webkit-speech />
+                                </div>
+
+                            
+                                <div class="col-lg-6 form-group">
+                                    <label>{#correo_electronico#}</label>
+                                    <input class="form-control validate[required, custom[email]]" type="text" name="email" x-autocompletetype="email" placeholder="{#correo_electronico#}" />
+                                </div>
+
+                                <div class="col-lg-6 form-group">
+                                    <label>{#repita_el_correo_electronico#}</label>
+                                    <input class="form-control validate[required, custom[confirmationEmail]" type="text" name="repiteEmail" placeholder="{#repita_el_correo_electronico#}" />
+                                </div>
+
+                                <div class="col-lg-6 form-group">
+                                    <label>{#telefono_movil#}</label>
+                                    <input class="form-control validate[required]" type="text" name="telefono" placeholder="{#telefono_movil_incidencias#}" />
+                                </div>
+
+                                <div class="col-lg-6 form-group">
+                                    <label>País de residencia</label>
+                                    <select class="form-control validate[required]" name="nacionalidad">
+                                        {foreach from=$countries key=key item=country}
+                                            <option value="{$key}" {if $key eq "ES"}selected="selected"{/if}>{$country}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                    <div class="delimiter"></div>
+                                <div class="col-lg-12 form-group">
+                                    <label for="hotel">{#donde_te_hospedas#}</label>
+                                    <input class="form-control validate[required]" type="text" name="hotel" id="hotel" placeholder="{#nombre_hotel#}" x-webkit-speech />
+                                </div>
+                                    
+                                {if $excursion->cobro->validacionCaptcha}
+                                <div class="col-lg-12">
+                                    <div id="captchadiv"></div>
+                                </div>
+                                {/if}
+                            </div>
+                            
+
+                            {if $excursion->cobro->forma eq 'Online'}
+
+                                <!--<h5 class="card-message" style="clear: both;">{#completa_datos_tarjeta#}</h5>-->
+                                
+                                <div class="datos-tarjeta-container col-lg-12 alert alert-info">
+                                    <div class="col-lg-12">
+                                        <p>{#te_enviaremos_tu_reserva#}: <span id="enviaremos-email"></span></p>
+                                        <input type="hidden" class="amount" name="amount" value='0'>
+                                        <input type="hidden" id="forma_pago" value="{$excursion->cobro->forma}">
+                                        <div class="delimiter"></div>
+                                        <hr class="double">
+                                   
+                                        <p>
+                                            {if $excursion->restriccionesTpv->$lang}
+                                                {$excursion->restriccionesTpv->$lang}
+                                            {else}
+                                                {$excursion->restriccionesTpv->es}
+                                            {/if}
+                                        </p>
+                                        
+                                        <div class="delimiter"></div>
+                                        <hr class="double">
+
+                                        <div class="content-right clearfix"><strong class="resaltar_texto_total">{#total_de_reserva#} <span id="confirmar-total"></span></strong>
+                                        </div>
+                                       
+                                        <div class="content-right clearfix"><strong class="resaltar_texto_total">Total a pagar ahora [<span id="porcientoAdelanto">{$excursion->cobro->porcentajeAdelanto}</span>%] <span id="pagoAdelantado"></span></strong></div>
+                                    </div>
+                                    
+                                </div>
+                            {else}
+                            
+                            <div class="form-group row recomendaciones_container">
+                                <div class="col-lg-12">
+                                   <div class="padding-left-15 alert alert-info">
+                                       <p>{#te_enviaremos_tu_reserva#}: <span id="enviaremos-email"></span></p>
+                                       <input type="hidden" id="forma_pago" value="{$excursion->cobro->forma}">
+                                       <hr class="double">
+                                       <p>{$excursion->restriccionesTpv}</p>
+                                       <hr class="double">
+                                        <div class="content-right clearfix"><strong>{#total_de_reserva#} <span id="confirmar-total"></span></strong>
+                                        </div>
+                                   </div>
+                               </div>
+                            </div>
+                            {/if}
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                   <div class="checkbox">
+                                       <input type="checkbox" name="aceptoPoliticas" class="validate[required]">
+                                       {#entiendo_acepto#} <a id="privacy_policies" href="javascript:void(0)">{#politicas_privacidad#}</a> {#y_las#} <a id="book_conditions" href="javascript:void(0)">{#condiciones_reserva#}</a>
+                                   </div>
+
+                                   <div class="checkbox">
+                                       <input type="checkbox" name="aceptoRecibirOfertas">
+                                       {#acepto_recibir#} <strong>vikatickets.com</strong>
+                                   </div>
+                                </div>
+                            </div>    
+                            <div class="credit-card-section">
+                                <div class="form-group text-right">
+                                    <a id="reset-reserva" class="btn btn-default notHover" href="javascript:void(0)">{#cancelar#}</a>
+                                    <input id="total_reservar_button" class="btn btn-warning notHover" type="submit" name="" value="✓ Finalizar reserva" />
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
                     </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="question-button-container clearfix">
+                        <a id="btn-make-question" class="btn btn-default notHover col-lg-12" href="javascript:void(0)">{#tienes_una_pregunta#}</a>
+                    </div>
+
+                    <div class="form-group clearfix" id="question-container">
+                        <form id="make-question-form">
+                            <div class="row contact-for-inner">
+                                <input type="hidden" name="action" value="enviarPregunta">
+                                <input type="hidden" name="eventoId" value="{$excursion->id}">
+                                <div class="col-lg-12"><div class="form-group"><input class="validate[required]" type="text" name="name" x-webkit-speech placeholder="{#nombre#}"></div></div>
+                                <div class="col-lg-12"><div class="form-group"><input class="validate[required, custom[email]]" type="text" name="email" placeholder="{#correo_electronico#}"></div></div>
+                                <div class="col-lg-12"><div class="form-group"><textarea class="validate[required]" name="message" placeholder="{#mensaje#}"></textarea></div></div>
+                                <div class="col-lg-3"></div>
+                                <div class="col-lg-9"><a id="btn-make-question-close" class="btn btn-default notHover " href="javascript:void(0)">{#cerrar#}</a>
+                                <a id="btn-make-question-send" class="btn btn-warning notHover" href="javascript:void(0)">{#enviar_pregunta#}</a></div>
+                            </div>
+                        </form>
+                    </div>
+                    {if $excursion->rating > -1}
                     <div id="opiniones">
-                        <div class="content-title">
-                            <h3>Opiniones</h3>
-                            <hr class="for_double">
-                        </div>
                         {if $excursion->opiniones}
                         
-                        <div class="col-lg-12">
+                        <div>
                             <div class="header-opiniones">
-                                <span>Puntuaci&oacute;n</span>
+                                <span>{#puntuacion#}</span>
                                 <span class="puntuacion">{$excursion->puntuacion}</span>
                                 <span class="evaluacion">
-                                    {if $excursion->puntuacion > 9}
-                                        Excelente
-                                        {elseif $excursion->puntuacion > 8 }
-                                        Muy Buena
-                                        {elseif $excursion->puntuacion > 7 }
-                                        Buena
-                                        {elseif $excursion->puntuacion > 6 }
-                                        Aceptable
+                                    {if $excursion->puntuacion >= 4.6}
+                                        {#exelente#}
+                                        {elseif $excursion->puntuacion >= 4 }
+                                        {#muy_buena#}
+                                        {elseif $excursion->puntuacion >= 3 }
+                                        {#buena#}
+                                        {elseif $excursion->puntuacion >= 2 }
+                                        {#aceptable#}
                                         {else}
-                                        Mala
+                                        {#mala#}
                                     {/if}
                                 </span>
                             </div>
                             {foreach from=$excursion->opiniones item=opinion}
                             <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="puntuacion">{$opinion->puntuacion}</div>
-                                    <div class="evaluacion">
-                                        {if $opinion->puntuacion > 9}
-                                            Excelente
-                                            {elseif $opinion->puntuacion > 8 }
-                                            Muy Buena
-                                            {elseif $opinion->puntuacion > 7 }
-                                            Buena
-                                            {elseif $opinion->puntuacion > 6 }
-                                            Aceptable
-                                            {else}
-                                            Mala
-                                        {/if}
-                                    </div>
-                                </div>
-                                <div class="col-sm-8">
-                                    {$opinion->opinion}
+                                <div class="puntuacion pull-left text-center">{$opinion->puntuacion}</div>
+                                <div class="opinion_text pull-left">
+                                {$opinion->opinion}
                                 </div>
                             </div>
+
                             {/foreach}
                         </div>
                             {else}
-                            <label>A&uacute;n no cuenta con opiniones.</label>
+                            <label>{#aun_no_cuenta_con_opiniones#}.</label>
                         {/if}
                         <div class="delimiter"></div>
-                    </div>
-                    <div class="content-title">
-                        <h3>¿Quieres reservar ahora?</h3>
                         <hr class="for_double">
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="weather-container borderBoxBlue">
-                        <div id="weatherslider">
-                            {if $excursion->direccion}
-                                <span title="{$excursion->direccion->descripcion}" class="ws-location">{$excursion->direccion->lat},{$excursion->direccion->lon}</span>
-                                {else}
-                                <span title="Corralejo, Fuerteventura" class="ws-location">28.7361111111,-13.8677777778</span>  
-                            {/if}
+                    
+                    {/if}
 
+                    <div id="mapa">
+                        <div id="details-map-location"></div>
+                        <div id="details-location" class="borderBoxBlue">
+                            <span><strong>{#direccion#}: </strong>{$excursion->direccion->descripcion}</span><br/>
+                            <span><strong>{#telefono#}: </strong>{$excursion->telefono}</span>
                         </div>
                     </div>
+                    
+
+                    {if $otraexcursion}
+                    <div class="sugerencia col-lg-12">
+                        <h5 class="card-message">Quiz&aacute; te pueda interesar</h5>
+                        <div id="parthenon-slider-2" class="carousel slide">
+                            <div class="carousel-inner detalle_carousel_inner">
+                                {if $otraexcursion->imagenes}
+                                {foreach name=loop_imagenes from=$otraexcursion->imagenes item=imagen}
+                                <div class="item {if $smarty.foreach.loop_imagenes.first}active{/if}">
+                                    <img src="{$imagen->ruta}" alt="Photo {$smarty.foreach.loop_imagenes.iteration}">
+                                    <div class="carousel-caption">
+
+                                    </div>
+                                </div>
+                                {/foreach}
+                                {else}
+                                    <div class="item active">
+                                        <img src="{$template_url}/imagenes/slider1.jpg" alt="Photo 1">
+                                        <div class="carousel-caption">
+
+                                        </div>
+                                    </div>
+                                {/if}
+                                
+                            </div>
+                            <div class="back-images layer-1"></div>
+                            <div class="back-images layer-2"></div>
+
+                            <a class="left carousel-control" href="#parthenon-slider-2" data-slide="prev">
+                                <span class="icon-prev"></span>
+                            </a>
+                            <a class="right carousel-control" href="#parthenon-slider-2" data-slide="next">
+                                <span class="icon-next"></span>
+                            </a>
+                        </div>
+                        <div>
+                            <div class="content-title">
+                                
+                                <h3>
+                                    <i style="float:left;">{$otraexcursion->nombre}</i>
+                                        {if $otraexcursion->rating > 0}
+                                        <div class="excursion-rating" puntuacion="{$otraexcursion->rating}"></div>
+                                        {/if}
+                                        
+                                        <br />
+                                </h3>
+                            </div>
+                            <div id="descripcion-excursion">
+                                <ul class="parthenon-caption">
+                                    <li>
+                                        <div class="icon-map-marker"></div>
+                                        <strong>{#destino#}</strong> {$otraexcursion->direccion->descripcion}
+                                    </li>
+
+                                    <li>
+                                        <div class="icon-tag"></div>
+                                        <strong>{#precio#}</strong> {#a_partir_de#} <strong>{$otraexcursion->precio->precio|number_format:2:',':'.'}&euro;</strong>
+                                    </li>
+                                    {if !$otraexcursion->duracionIndefinida}
+                                    <li>
+                                        <div class="icon-time"></div>
+                                        <strong>{#duracion#}</strong> {if $otraexcursion->dias eq 0}{$otraexcursion->duracion}hrs{else}{$otraexcursion->dias}días{/if}
+                                    </li>
+                                    {/if}
+                                    <li>
+                                        {if $otraexcursion->sinopsisCorta->$lang}
+                                            {$otraexcursion->sinopsisCorta->$lang}
+                                        {else}
+                                            {$otraexcursion->sinopsisCorta->es}
+                                        {/if}
+                                    </li>
+                                </ul>                    
+                            </div>
+                        </div>
+                        <div>
+                            <a href="{$base_url}/detalle/id:{$otraexcursion->id}/{$otraexcursion->tituloSeo}" class="btn btn-warning notHover" >¡Lo quiero!</a>
+                        </div>
+                    </div>
+                    {/if}
                 </div>
             </div>
         </div>
         <div class="col-lg-12 form_container_main">
-        <div class="col-lg-8 borderBoxBlue pdgTop15 form_reservation">
-            <form id="payment-register-form">
-                <input type="hidden" name="action" value="insertReservacion">
-                <input type="hidden" name="eventoId" value="{$excursion->id}">
-                <h5 class="card-message">Complete los datos de la reservaci&oacute;n</h5>
-                <div class="form-group row">
-                    <div class="col-lg-6">
-                        <div id="fecha"></div>
-                        <input class="btn-box-text hidden" type=text name="fecha" />
-                        <select name="fechas" id="fechas" class="hidden">
-                            {foreach from=$excursion->tarifas item=tarifa}
-                                {foreach name=fechas from=$tarifa->fechas item=fecha}
-                                    <option value="{$fecha->fecha|date_format:"%m/%d/%Y"}" tarifa-id="{$tarifa->id}">{$fecha->fecha|date_format:"%m/%d/%Y"}</option>
-                                {/foreach}
-                            {/foreach}
-                        </select>
-                    </div>
-                    <div class="col-lg-6 calendar2">
-                        <div class="alert alert-success">
-                            <h4> ¿Cuando quieres ir?</h4>
-                            <p class="seleccionaFecha">-Selecciona una fecha disponible</p>
-                            <p class="fechaSeleccionada"><img src="{$template_url}/imagenes/mini_checkList.png"> <span></span></p>
-                            <p class="completaAhora">Ahora completa tus datos y finaliza la reserva</p>
-                        </div> 
-                    </div>
-                    </div>
-                    <div class="row" style="margin-top: -50px; padding-bottom: 0;">
-                    <div class="col-lg-12">
-                        <div id="tarifas-table" class="form-group tarifas-table form-horizontal">
-                          <h5 class="card-message" style="clear: both;">¿Que tipo de entradas deseas reservar?</h5>
-                          <div class=" row">  
-                                
-                            {foreach from=$excursion->tarifas item=tarifa}
-                                {foreach from=$tarifa->zonas item=zona name=zonas}
-                                        <div class=" tarifa_container" tarifa-id="{$tarifa->id}">
-                                            
-                                            <div class=" content-right">
-                                                
-                                                <label class="precio" for="entradas[{$zona->entrada->id}]">
-                                                    [{$zona->entrada->descripcion}] <strong>{$zona->entrada->nombre}</strong>
-                                               </label>
-                                               </div>
-                                               <div class="select-cell no-padding">
-                                                <select name="entradas[{$zona->id}]" precio="{$zona->total}" class="form-control" style="width:70px">
-                                                    {foreach from=$cantidades item=c}                                   
-                                                        <option value="{$c}" {if ($c eq 1 && $smarty.foreach.zonas.first) || ($c eq 0 && !$smarty.foreach.zonas.first)}selected=""{/if} >{$c}</option>                                    
-                                                    {/foreach}
-                                                </select>
-                                               
-                                            </div>
-                                                
-                                            <div class="subtotal-cell no-padding content-center">
-                                                 <label class="precioConDescuento"><strong></strong></label> 
-                                                 <label class="totalEntradas"><strong></strong></label>
-                                            </div>
-                                                
-                                        </div>
-                                {/foreach}
-                            {/foreach}
-                            
-                             </div>
-                        </div>
-                        <div class="cupon_total_container">
-                            <div class="row-fluid cupon-container">
-                                <div>
-                                    <div>
-                                        <div class=" content-right">
-                                            <label class="cupon">¿Tienes un cup&oacute;n promocional?</label>
-                                        </div>
-                                        <div class="select-cell content-right no-padding">
-                                            <input style="margin: 0; width: 70px;" class="btn-box-text " type=text name="cupon"  />
-                                        </div>
-                                        <div class="subtotal-cell content-center no-padding">
-                                            <a id="validar_cupon" class="btn btn-warning notHover" href="javascript:void(0)">Validar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row-fluid tota_container">
-                                <div class=" text-right no-padding">
-                                    <div>
-                                        <div>&nbsp;</div>
-                                        <div class="select-cell">
-                                        <label>Total:</label>
-                                        </div>
-                                        <div class="subtotal-cell content-center" ><label class="precioConDescuento"><strong></strong></label>
-                                        <label class="precio_total"><strong></strong></label>
-                                        <div>Impuestos incluidos</div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <select name="tarifaId" id="tarifa" class="btn-box-text hidden">
-                            <option selected disabled>Seleccione la Tarifa</option>
-                            {foreach from=$excursion->tarifas item=tarifa}                                    
-                                <option value="{$tarifa->id}">{$tarifa->nombre}</option>                                    
-                            {/foreach}
-                        </select>
-                    </div>
-                </div>
-
-            <div class="row-fluid second_step_information">
-               <h5 class="card-message" style="clear: both;">Complete los datos de su cuenta</h5>
-               <div class="form-group row">
-                <div class="col-lg-6">
-                    <input class="btn-box-text validate[required]" type=text name="nombre" placeholder="Nombre" />
-                </div>
-
-                <div class="col-lg-6">
-                    <input class="btn-box-text validate[required]" type=text name="apellidoPaterno" placeholder="Apellido/s" />
-                </div>
-
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-lg-12">
-                        <input class="btn-box-text validate[required, custom[email]]" type=text name="email" placeholder="Correo electrónico" />
-                    </div>
-                    
-                    <div class="col-lg-12">
-                        <input class="btn-box-text validate[required, custom[confirmationEmail]" type=text name="repiteEmail" placeholder="Repita el correo electrónico" />
-                    </div>
-                    
-                    <div class="col-lg-6">
-                        <input class="btn-box-text validate[required]" type=text name="telefono" placeholder="Teléfono móvil (para incidencias)" />
-                    </div>
-                    <div class="col-lg-12">
-                        <div id="captchadiv"></div>
-                    </div>
-                </div>
-               
-                <div class="form-group row">
-                   <div class="col-lg-12 alert alert-info">
-                       <p>Te enviaremos tu reserva por mail a:</p>
-                       <p style="font-weight: bold;">podr&aacute;s realizar el pago en efectivo o tarjeta de cr&eacute;dito en taquilla.</p>
-                       <p>{$excursion->restriccionesTpv}</p>
-                   </div>
-                </div>
-                <div class="form-group row">
-                   <div class="col-lg-12 checks">
-                       <input type="checkbox" name="aceptoPoliticas" class="validate[required]">
-                       <label for="aceptoPoliticas">Entiendo y acepto las <a id="privacy_policies" href="javascript:void(0)">Pol&iacute;ticas de privacidad</a> y las <a id="book_conditions" href="javascript:void(0)">Condiciones de reserva</a></label>
-                   </div>
-                   
-                   <div class="col-lg-12 checks">
-                       <input type="checkbox" name="aceptoRecibirOfertas">
-                       <label for="aceptoRecibirOfertas">Acepto recibir ofertas y promociones de <strong>vikatickets.com</strong></label>
-                   </div>
-                </div>    
-                <div class="credit-card-section">
-                    <div class="form-group text-right">
-                        <a id="reset-reserva" class="btn btn-default notHover" href="javascript:void(0)">Cancelar</a>
-                        <input class="btn btn-warning notHover" type=submit name="" value="Finalizar mi reserva" />
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                </div>
-            </form>
-        </div>
+        
         <div class="col-lg-4">
-            <div class="question-button-container">
-                <a id="btn-make-question" class="btn btn-default notHover" href="javascript:void(0)">¿Tienes una pregunta?</a>
-            </div>
-            <div class="form-group" id="question-container">
-                <form id="make-question-form">
-                    <div class="row contact-for-inner">
-                        <input type="hidden" name="action" value="enviarPregunta">
-                        <div class="col-lg-12"><div class="form-group"><input class="validate[required]" type="text" name="name" placeholder="Nombre completo"></div></div>
-                        <div class="col-lg-12"><div class="form-group"><input class="validate[required]" type="text" name="email" placeholder="Correo electrónico"></div></div>
-                        <div class="col-lg-12"><div class="form-group"><textarea class="validate[required]" name="message" placeholder="Mensaje"></textarea></div></div>
-                        <div class="col-lg-3"></div>
-                        <div class="col-lg-9"><a id="btn-make-question-close" class="btn btn-default notHover " href="javascript:void(0)">Cerrar</a>
-                        <a id="btn-make-question-send" class="btn btn-warning notHover" href="javascript:void(0)">Enviar pregunta</a></div>
-                    </div>
-                </form>
-            </div>
-            <div id="mapa">
-            <div id="details-map-location"></div>
-            <div id="details-location" class="borderBoxBlue">
-                <span><strong>Direcci&oacute;n: </strong>{$excursion->direccion->descripcion}</span><br/>
-                <span><strong>Tel&eacute;fono: </strong>{$excursion->telefono}</span>
-            </div>
-            </div>
-            
-            
                    
         </div>
         
@@ -363,6 +488,7 @@
                 <thead>
                     <tr>
                         <th>{$tarifa->nombre}</th>
+                        <th>Horarios</th>
                         <th>Servicios</th>
                         <th>Cupo</th>
                         <th>Precio</th>
@@ -375,6 +501,11 @@
                         <td rowspan="{count($tarifa->zonas)}" class="fechasTarifas" tarifa-id="{$tarifa->id}">
                             {foreach name=fechas from=$tarifa->fechas item=fecha}
                                 {if !$smarty.foreach.fechas.first}, {/if}{$fecha->fecha|date_format:"%e/%m/%Y"}
+                            {/foreach}
+                        </td>
+                        <td rowspan="{count($tarifa->zonas)}" class="sesionesTarifas" tarifa-id="{$tarifa->id}">
+                            {foreach name=sesiones from=$tarifa->sesiones item=sesion}
+                                {if !$smarty.foreach.sesiones.first}, {/if}{$sesion->hora|date_format:"%H:%M"}
                             {/foreach}
                         </td>
                         {foreach name=filas from=$tarifa->zonas item=zona}
@@ -396,9 +527,6 @@
             <hr class="space">
             {/foreach}
         </div>
-        
-        
-        
         </div>
     </div>    
 </div>
@@ -407,7 +535,21 @@
     <div class="row"></div>
 </div>
 
-            
+<form name="compra" id="caixa_pago_form" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST" target="tpv">
+    <!--Empieza caixa pago-->
+    <input type="hidden" class="amount" name="Ds_Merchant_Amount" value='0'>
+    <input type="hidden" name="Ds_Merchant_Currency" value='978'>
+    <input type="hidden" class="order" name="Ds_Merchant_Order"  value='2'>
+    <input type="hidden" name="Ds_Merchant_MerchantCode" value='329490981'>
+    <input type="hidden" name="Ds_Merchant_MerchantName" value='www.fuertetour.com'>
+    <input type="hidden" name="Ds_Merchant_ProductDescription" value='{$excursion->nombre}'>
+    <input type="hidden" name="Ds_Merchant_Terminal" value='1'>
+    <input type="hidden" name="Ds_Merchant_TransactionType" value='0'>
+    <!--<input type="hidden" name="Ds_Merchant_MerchantURL" value=''>-->
+    <input type="hidden" class="signature" name="Ds_Merchant_MerchantSignature" value="">
+    <!--Termina caixa pago-->
+</form>
+
 <div class="modal fade" id="privacy_policies_modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -621,5 +763,11 @@ La declaración de nulidad de alguna o algunas de las cláusulas establecidas en
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var EVALUACIONES = [
+        '{#mala#}','{#aceptable#}','{#buena#}','{#muy_buena#}','{#exelente#}'
+    ]
+</script>
             
 {/block}

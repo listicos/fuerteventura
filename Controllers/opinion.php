@@ -21,21 +21,9 @@ if(isset($_GET['id'])) {
         }            
     }
     
-    $cantidades = array();
-    for($i=0;$i<51;$i++) {
-        array_push($cantidades, $i);
-    }
-    $smarty->assign('cantidades', $cantidades);
-    
-    if(isset($_GET['fecha'])) {
-        $fechaSeleccionada = $_GET['fecha'];
-        
-        $smarty->assign('fechaSeleccionada', $fechaSeleccionada);
-    }
-    $countries = Core_Util_General::countries();
-    $smarty->assign('countries',$countries);
     $smarty->assign('current_url','http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
 }
 
-$smarty->display('detalle.tpl');
+$smarty->display('opinion.tpl');
+
 ?>
