@@ -49,8 +49,10 @@
             
             <div class="row" style="padding-bottom: 0; padding-top: 5px;">
                 <div class="content-title col-lg-12">
-                    <p>{if $edificio && $edificio->descripciones && count($edificio->descripciones) > 0}
-                            {$edificio->descripciones[0]->descripcion}
+                    <p>{if $edificio && $edificio->descripcion->$lang}
+                            {$edificio->descripcion->$lang->descripcion}
+                        {else}
+                            {$edificio->descripcion->es->descripcion}
                         {/if}</p>
                 </div>
             </div>
@@ -118,7 +120,11 @@
                             {/if}
                         </ul>
                         <p>
-                            {$excursion->sinopsisCorta}
+                            {if $excursion->sinopsisCorta->$lang}
+                                {$excursion->sinopsisCorta->$lang}
+                            {else}
+                                {$excursion->sinopsisCorta->es}
+                            {/if}
                         </p>
                         
                         <a href="{$base_url}/detalle/id:{$excursion->id}/{$excursion->tituloSeo}" class="btn btn-warning notHover reservar-btn">Reserve ahora</a>

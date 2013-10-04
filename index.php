@@ -22,6 +22,7 @@ if (isset($_SESSION['lang'])){
    } else {
           $lang_set = "es";
 }
+$smarty->assign('lang', $lang_set);
 $smarty->configLoad($lang_set . '.conf');
 
 $controller = new Core_Controller();
