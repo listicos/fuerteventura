@@ -89,27 +89,35 @@ body{
     color: #fff;
     font-weight: bold;
 }
-.header .social-links{
+.social-links{
     padding: 4px 0;
+    clear: both;
+    height: 28px;
 }
-.header .social-links a, .header .social-links span {
+.social-links a, .social-links span {
     float: left;
-    margin-left: 10px;
+    margin-left: 1px;
 }
-.header .social-links a {
+.social-links a {
     width: 16px;
     height: 16px;
     margin-top: 0.15em;
     background: url("../imagenes/social_icons.png") 0 0 no-repeat;
 }
-.header .social-links a.facebook {
+.social-links a.facebook {
     background-position: -16px -0px;
 }
-.header .social-links a.twitter {
+.social-links a.twitter {
     background-position: -32px -0px;
 }
-.header .social-links a.vimeo {
+.social-links a.vimeo {
     background-position: -0px -48px;
+}
+.social-links a.skype {
+    background-position: -16px -48px;
+}
+.social-links a.youtube {
+    background-position: -0px -32px;
 }
 .header .nav-pills > li > a{
     font-weight: bold;
@@ -291,8 +299,8 @@ body{
 }
 .content-title{
     overflow: hidden;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
+    margin-bottom: 0;
+    padding-bottom: 0;
     color: #10798E;
     font-size: 14px;
     text-align: justify;
@@ -301,7 +309,7 @@ body{
     border-top: 1px solid #10798E;
 }
 .content-title h2, .content-title h3, .content-title h4, .content-title h5{
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
 }
 .content .row, .content-block {
     padding: 2.5em 0 3em 0;
