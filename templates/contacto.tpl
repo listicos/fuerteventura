@@ -25,9 +25,9 @@
                         <hr class="for_double">
                         
                     </div>
-                    <div class="col-lg-6"><div class="form-group"><input class="btn-box-text" type="text" name="name" placeholder="Nombre completo" /></div></div>
-                    <div class="col-lg-6"><div class="form-group"><input class="btn-box-text" type="text" name="email" placeholder="Correo electrónico" /></div></div>
-                    <div class="col-lg-12"><div class="form-group"><textarea class="btn-box-text" name="message" placeholder="Mensaje"></textarea></div></div>
+                    <div class="col-lg-6"><div class="form-group"><input class="btn-box-text validate[required]" type="text" name="nombre" placeholder="Nombre completo" /></div></div>
+                    <div class="col-lg-6"><div class="form-group"><input class="btn-box-text validate[required, custom[email]]" type="text" name="email" placeholder="Correo electrónico" /></div></div>
+                    <div class="col-lg-12"><div class="form-group"><textarea class="btn-box-text validate[required]" name="mensaje" placeholder="Mensaje"></textarea></div></div>
                     <div class="col-lg-12"><input type="submit" class="btn btn-warning left" value="Enviar" /></div>
                 </div>
             </form>

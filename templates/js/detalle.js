@@ -185,7 +185,7 @@ function reservacionFunctions() {
             
             if($('#forma_pago').val()=='Online' && $('input[name=onRequest]').val() != '1'){
                 //Pago Caixa
-                //var win=window.open(BASE_URL+'/cargando','tpv','width=725,height=600,scrollbars=no,resizable=yes,status=yes,menubar=no,location=no');
+                var win=window.open(BASE_URL+'/cargando','tpv','fullscreen=yes,scrollbars=no,resizable=no,status=yes,menubar=no,location=no,titlebar=no');
                 //Termina pago Caixa
             }
 
@@ -202,6 +202,7 @@ function reservacionFunctions() {
                         $('.order').val(response.order);
                         $('.signature').val(response.signature);
                         $('#caixa_pago_form').submit();
+                        $('#blocker').slideUp('slow');
                         //Termina pago Caixa
                     }else{
                         $('.second_step_information input[type="submit"]').removeClass('disabled');
@@ -209,12 +210,12 @@ function reservacionFunctions() {
                     }
 
                     if(response.result == 'ok') {
-                        
                         toastr.success(response.msg);
-                        setTimeout(function(){
-                           $(window).attr('location', BASE_URL + '/confirmacion/codigo:' + response.data.codigo);
-                        }, 2000);
-                        
+                        if($('#forma_pago').val()!='Online' || response.order && $('input[name=onRequest]').val() == '1'){
+                            setTimeout(function(){
+                               $(window).attr('location', BASE_URL + '/confirmacion/codigo:' + response.data.codigo);
+                            }, 2000);
+                        }
 
                     } else {
                         toastr.error(response.msg);

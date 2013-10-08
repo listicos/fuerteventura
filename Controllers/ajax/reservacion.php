@@ -41,7 +41,8 @@ if (strcmp($action, "insertReservacion") == 0) {
         'canal' => 'web_excursiones',
         'telefono' => null,
         'sesion' => null,
-        'cupon' => NULL
+        'cupon' => NULL,
+        'hotel' => NULL
     );
     
     $data_tarjeta = array(
@@ -118,7 +119,7 @@ if (strcmp($action, "insertReservacion") == 0) {
         $order = $reservacion->codigo;
         // Me parece que hay un error en el precio
         //$amount = $reservacion->precio;
-        $amount = ($reservacion->precio * $reservacion->evento->cobro->porcentajeAdelanto / 100);
+        $amount = ($reservacion->precio * $reservacion->evento->cobro->porcentajeAdelanto);
         //$urlMerchant = $_POST['current_url'];
 
         if (is_object($result)){      
@@ -128,8 +129,6 @@ if (strcmp($action, "insertReservacion") == 0) {
             $signature = sha1($message);
             $result->signature = $signature;
         }else{
-            //Fast horrible hack
-            // Este número puede ser el id de la reservación
             $result['order'] = $order;
             $message = $amount.$order.$caixa->code.$caixa->currency.$caixa->transactionType.$caixa->clave;
             $signature = sha1($message);
@@ -146,21 +145,22 @@ if (strcmp($action, "insertReservacion") == 0) {
     $smarty->assign('usuario', $usuario);
     $smarty->assign('evento', $evento);
 
-    
-    if(strcmp($reservacion->estatus, "Aprobado") == 0) {
+    if($reservacion->evento->onRequest) {
+        $body_email = 'Se te enviará un email de confirmación con los datos de tu reserva';
+        $subject = 'Gracias ' . $usuario->nombre . '! Tu solicitud esta siendo procesada';
+    }
+    else if(strcmp($reservacion->estatus, "Aprobado") == 0) {
         $body_email = $smarty->fetch('confirmacion_email.tpl');
 
         $subject = 'Gracias ' . $usuario->nombre . '! Tu reserva está confirmada';
-    } else {
-        $body_email = 'Se te enviará un email de confirmación con los datos de tu reserva';
-
-        $subject = 'Gracias ' . $usuario->nombre . '! Tu solicitud esta siendo procesada';
-    }
+    } 
 
     try {
-    $mail = new Core_Mailer();                               
+        if($reservacion->evento->onRequest || strcmp($reservacion->estatus, "Aprobado") == 0) {
+            $mail = new Core_Mailer();                               
 
-    $enviado = $mail->send_email($usuario->email, $subject, $body_email);
+            $enviado = $mail->send_email($usuario->email, $subject, $body_email);
+        }
     }
     catch(Exception $e) {
         

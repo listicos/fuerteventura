@@ -10,7 +10,7 @@ $result = json_decode($result);
 $excursiones = $result->data;
 
 $tipologias = array();
-if ($excursiones)
+
 foreach ($excursiones as $e) {
     if(!isset($tipologias[$e->tipologiaId]))
         $tipologias[$e->tipologiaId] = array('tipologia' => $e->tipologia, 'cantidad' => 0);
@@ -23,6 +23,7 @@ $smarty->assign('tipos', $tipologias);
 // edificio
 $client = new nusoap_client($service_url.'/soap-edificio');
 $result = $client->call('get', array('params'=>$params));
+
 $result = json_decode($result);
 $edificio = $result->data;
 

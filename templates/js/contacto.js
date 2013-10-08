@@ -17,10 +17,30 @@ function initialize() {
 }
 
 $(document).ready(function(){
-    $('#blocker').fadeOut();
+    $('#blocker').slideUp('fast');
     initialize();
     google.maps.event.trigger(map, 'resize');
     map.setCenter(myLatlng);
     
+    $('#contact-form').submit(function(e){
+        e.preventDefault();
+        var valid = $(this).validationEngine('validate');
+        if(valid) {
+            var data = $(this).serialize();
+            $.ajax({
+                url: BASE_URL + '/ajax-contacto',
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function(response) {
+                    if(response.result == 'ok') {
+                        toastr.success(response.msg);
+                    } else {
+                        toastr.error(response.msg);
+                    }                    
+                }
+            });
+        }
+    });
 });
 

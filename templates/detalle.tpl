@@ -248,7 +248,7 @@
                                     <input class="form-control validate[required]" type="text" name="hotel" id="hotel" placeholder="{#nombre_hotel#}" x-webkit-speech />
                                 </div>
                                     
-                                {if $excursion->cobro->validacionCaptcha}
+                                {if $excursion->cobro->forma eq 'Offline'}
                                 <div class="col-lg-12">
                                     <div id="captchadiv"></div>
                                 </div>
@@ -294,7 +294,13 @@
                                        <p>{#te_enviaremos_tu_reserva#}: <span id="enviaremos-email"></span></p>
                                        <input type="hidden" id="forma_pago" value="{$excursion->cobro->forma}">
                                        <hr class="double">
-                                       <p>{$excursion->restriccionesTpv}</p>
+                                       <p>
+                                           {if $excursion->restriccionesTpv->$lang}
+                                                {$excursion->restriccionesTpv->$lang}
+                                            {else}
+                                                {$excursion->restriccionesTpv->es}
+                                            {/if}
+                                       </p>
                                        <hr class="double">
                                         <div class="content-right clearfix"><strong>{#total_de_reserva#} <span id="confirmar-total"></span></strong>
                                         </div>
