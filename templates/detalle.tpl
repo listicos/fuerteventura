@@ -61,35 +61,40 @@
                             <input type="hidden" name="fechaSeleccionada" value="{$fechaSeleccionada}">
                             <input type="hidden" name="onRequest" value="{$excursion->onRequest}">
                             <h3>
-                                <i style="float:left;">{$excursion->nombre}</i>
-                                    {if $excursion->rating > 0}
-                                    <div class="excursion-rating" puntuacion="{$excursion->rating}"></div>
-                                    {/if}
-                                    
-                                    <br />
+                                <div style="float:left;">                                
+                                    <i style="float:left;">{$excursion->nombre}</i>
+                                </div>
+                                <div class="tabla float-right">
+                                    <div>
+                                        {if $excursion->enlaces->facebook || $excursion->enlaces->twitter || $excursion->enlaces->youtube || $excursion->enlaces->skype }
+
+                                            <div class="social-links">
+                                                {if $excursion->enlaces->facebook}
+                                                    <a href="{$excursion->enlaces->facebook}" class="facebook" title="Facebook" target="_blank"></a>
+                                                {/if}
+                                                {if $excursion->enlaces->youtube}
+                                                    <a href="{$excursion->enlaces->youtube}" class="youtube" title="Youtube" target="_blank"></a>
+                                                {/if}
+                                                {if $excursion->enlaces->web}
+                                                    <a href="{$excursion->enlaces->web}" class="web" title="Web oficial" target="_blank"></a>
+                                                {/if}
+                                            </div>
+
+                                        {/if}
+                                        {if $excursion->rating > -1}
+
+                                            <div class="excursion-rating" puntuacion="{$excursion->rating}"></div>
+
+                                        {/if}
+                                    </div>
+                                </div>
+                                <hr class="for_double">
                             </h3>
-                                    <hr class="for_double">
+                                    
                         </div>
                         <div id="descripcion-excursion">
                             <ul class="parthenon-caption">
-                                {if $excursion->enlaces->facebook || $excursion->enlaces->twitter || $excursion->enlaces->youtube || $excursion->enlaces->skype }
-                                <li>
-                                    <div class="social-links">
-                                        {if $excursion->enlaces->facebook}
-                                            <a href="{$excursion->enlaces->facebook}" class="facebook" title="Facebook" target="_blank"></a>
-                                        {/if}
-                                        {if $excursion->enlaces->twitter}
-                                        <a href="{$excursion->enlaces->twitter}" class="twitter" title="Twitter" target="_blank"></a>
-                                        {/if}
-                                        {if $excursion->enlaces->youtube}
-                                        <a href="{$excursion->enlaces->youtube}" class="youtube" title="Youtube" target="_blank"></a>
-                                        {/if}
-                                        {if $excursion->enlaces->skype}
-                                        <a href="{$excursion->enlaces->skype}" class="skype" title="Skype" target="_blank"></a>
-                                        {/if}
-                                    </div>
-                                </li>
-                                {/if}
+                                
                                 <li>
                                     <div class="icon-map-marker"></div>
                                     <strong>{#destino#}</strong> {$excursion->direccion->descripcion}

@@ -90,7 +90,7 @@ body{
     font-weight: bold;
 }
 .social-links{
-    padding: 4px 0;
+    padding: 0 15px;
     clear: both;
     height: 28px;
 }
@@ -99,13 +99,14 @@ body{
     margin-left: 1px;
 }
 .social-links a {
-    width: 16px;
-    height: 16px;
-    margin-top: 0.15em;
-    background: url("../imagenes/social_icons.png") 0 0 no-repeat;
+    width: 24px;
+    height: 24px;
+    margin-top: 0;
+    background-size: 24px 24px !important;
+    
 }
 .social-links a.facebook {
-    background-position: -16px -0px;
+    background: url("../imagenes/icons/facebook.png") 0 0 no-repeat;
 }
 .social-links a.twitter {
     background-position: -32px -0px;
@@ -117,7 +118,10 @@ body{
     background-position: -16px -48px;
 }
 .social-links a.youtube {
-    background-position: -0px -32px;
+    background: url("../imagenes/icons/youtube.png") 0 0 no-repeat;
+}
+.social-links a.web {
+    background: url("../imagenes/icons/web.png") 0 0 no-repeat;
 }
 .header .nav-pills > li > a{
     font-weight: bold;
@@ -692,14 +696,31 @@ ul.rating li.yellow-star {
 
 div.excursion-rating {
     display: block;
-    float: right;
-    margin-bottom: 0;
-    margin-left: 8px;
-    margin-right: 8px;
-    margin-top: 0;
+    margin: 0 8px;
     width: 125px;
+    float: right;
 }
 
+div.excursion-rating img {
+    margin-top: -10px;
+}
+
+.float-right {
+    float: right;
+}
+
+.tabla {
+    display: table;
+}
+
+.tabla > div {
+    display: table-row;
+}
+
+.tabla > div > div {
+    display: table-cell;
+    float: none !important;
+}
 
 @media (min-width: 980px){
     .container.content.fullWhite{

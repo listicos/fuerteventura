@@ -108,10 +108,39 @@
                     <div class="col-lg-7">
                         <div class="content-title">
                             <h3>
-                                <i class="pull-left">{$excursion->nombre}</i>
-                                {if $excursion->rating > -1}
-                                    <span class="badge pull-right">{$excursion->rating} Puntos</span>
-                                {/if}
+                                <div style="float:left;">
+                                <a href="{$base_url}/detalle/id:{$excursion->id}/{$excursion->tituloSeo|replace:" ":"%20"}" class="title-link-reservar" >
+                                    <i style="float:left;">{$excursion->nombre}</i>                                    
+                                </a>
+                                </div>
+                                <div class="tabla float-right">
+                                    <div>
+                                        {if $excursion->enlaces->facebook || $excursion->enlaces->twitter || $excursion->enlaces->youtube || $excursion->enlaces->skype }
+
+                                            <div class="social-links">
+                                                {if $excursion->enlaces->facebook}
+                                                    <a href="{$excursion->enlaces->facebook}" class="facebook" title="Facebook" target="_blank"></a>
+                                                {/if}
+                                                {if $excursion->enlaces->youtube}
+                                                    <a href="{$excursion->enlaces->youtube}" class="youtube" title="Youtube" target="_blank"></a>
+                                                {/if}
+                                                {if $excursion->enlaces->web}
+                                                    <a href="{$excursion->enlaces->web}" class="web" title="Web oficial" target="_blank"></a>
+                                                {/if}
+                                            </div>
+
+                                        {/if}
+                                        {if $excursion->rating > -1}
+
+                                            {if $excursion->rating > -1}
+                                            <div>
+                                                <span class="badge pull-right">{$excursion->rating} Puntos</span>
+                                            </div>
+                                            {/if}
+
+                                        {/if}
+                                    </div>
+                                </div>
                             </h3>
                             <select name="fechasDisponibles" class="hidden" >
                                 {foreach from=$excursion->tarifas item=tarifa}
@@ -125,24 +154,7 @@
                             <hr class="for_double">
                         </div>
                         <ul class="parthenon-caption">
-                            {if $excursion->enlaces->facebook || $excursion->enlaces->twitter || $excursion->enlaces->youtube || $excursion->enlaces->skype }
-                            <li>
-                                <div class="social-links">
-                                    {if $excursion->enlaces->facebook}
-                                        <a href="{$excursion->enlaces->facebook}" class="facebook" title="Facebook" target="_blank"></a>
-                                    {/if}
-                                    {if $excursion->enlaces->twitter}
-                                    <a href="{$excursion->enlaces->twitter}" class="twitter" title="Twitter" target="_blank"></a>
-                                    {/if}
-                                    {if $excursion->enlaces->youtube}
-                                    <a href="{$excursion->enlaces->youtube}" class="youtube" title="Youtube" target="_blank"></a>
-                                    {/if}
-                                    {if $excursion->enlaces->skype}
-                                    <a href="{$excursion->enlaces->skype}" class="skype" title="Skype" target="_blank"></a>
-                                    {/if}
-                                </div>
-                            </li>
-                            {/if}
+                            
                             <li>
                                 <div class="icon-map-marker"></div>
                                 <strong>Destino</strong> {$excursion->direccion->descripcion}
