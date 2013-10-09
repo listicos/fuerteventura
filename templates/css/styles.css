@@ -738,6 +738,8 @@ div.excursion-rating img {
     overflow: auto;
 }
 
+.delimiter {clear: both;}
+
 @media (min-width: 980px){
     .container.content.fullWhite{
         width: 80%;

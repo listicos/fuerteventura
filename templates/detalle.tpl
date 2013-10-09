@@ -163,13 +163,12 @@
                                         {foreach from=$excursion->tarifas item=tarifa}
                                             {foreach from=$tarifa->zonas item=zona name=zonas}
 
-                                                    {if !$excursion->ventaSimultaneaTickets}
-                                                        <div class="select-tickets">
-                                                            <input type="radio" name="ticket">
-                                                        </div>
-                                                    {/if}
-
                                                     <div class=" tarifa_container" tarifa-id="{$tarifa->id}">
+                                                        {if !$excursion->ventaSimultaneaTickets}
+                                                            <div class="select-tickets">
+                                                                <input type="radio" name="ticket">
+                                                            </div>
+                                                        {/if}
                                                         <div class=" content-right">
                                                             <label class="precio" for="entradas[{$zona->entrada->id}]">
                                                                 [{$zona->entrada->descripcion}] <strong>{$zona->entrada->nombre}</strong>

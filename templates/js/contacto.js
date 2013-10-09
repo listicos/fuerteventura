@@ -1,5 +1,5 @@
 var map;
-var myLatlng = new google.maps.LatLng("28.7361111111","-13.8677777778");
+//var myLatlng = new google.maps.LatLng("28.7361111111","-13.8677777778");
 
 function initialize() {
   
@@ -18,9 +18,9 @@ function initialize() {
 
 $(document).ready(function(){
     $('#blocker').slideUp('fast');
-    initialize();
+    /*initialize();
     google.maps.event.trigger(map, 'resize');
-    map.setCenter(myLatlng);
+    map.setCenter(myLatlng);*/
     
     $('#contact-form').submit(function(e){
         e.preventDefault();

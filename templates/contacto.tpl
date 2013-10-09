@@ -22,11 +22,11 @@
                 <div class="row contact-for-inner">
                     <div class="content-title pdg015">
                         <h3>Contáctanos</h3>
-                        <hr class="for_double">
-                        
+                        <hr class="for_double">                        
                     </div>
                     <div class="col-lg-6"><div class="form-group"><input class="btn-box-text validate[required]" type="text" name="nombre" placeholder="Nombre completo" /></div></div>
                     <div class="col-lg-6"><div class="form-group"><input class="btn-box-text validate[required, custom[email]]" type="text" name="email" placeholder="Correo electrónico" /></div></div>
+                    <div class="delimiter"></div>
                     <div class="col-lg-12"><div class="form-group"><textarea class="btn-box-text validate[required]" name="mensaje" placeholder="Mensaje"></textarea></div></div>
                     <div class="col-lg-12"><input type="submit" class="btn btn-warning left" value="Enviar" /></div>
                 </div>
@@ -41,13 +41,14 @@
             <div class="news_suscribe">
                 <p>Suscríbete a nuestro boletín ahora para estar actualizado con las novedades.</p>
                 <form id="subscribe_form">          
-                    <input type="text" id="email" name="email" value="Correo Electrónico" class="validate[required, custom[email]]">
+                    <input type="text" id="email" name="email" placeholder="Correo Electrónico" class="validate[required, custom[email]]">
                     <div class="col-lg-12">
                         <input type="submit" class="btn btn-warning pull-right" value="Enviar" />
                     </div>
                 </form>
             </div>
-            <div class="content-title mrgTop20">
+            <div class="delimiter"></div>
+            <div class="content-title ">
                 <h3>Detalles</h3>
                 <hr class="for_double">
                 
