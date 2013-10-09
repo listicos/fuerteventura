@@ -542,6 +542,19 @@ background-position: 153px 32px;
     margin-bottom: 10px;
 }
 
+.select-tickets {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.entrada-selected {
+    background-color: #D9EDF7;
+}
+
+.sinopsis-excursion {
+    padding: 0 20px;
+}
+
 @media (max-width: 992px){
     #mapa{
         margin-top: 10px;

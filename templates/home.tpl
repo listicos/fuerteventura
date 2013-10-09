@@ -119,13 +119,13 @@
 
                                             <div class="social-links">
                                                 {if $excursion->enlaces->facebook}
-                                                    <a href="{$excursion->enlaces->facebook}" class="facebook" title="Facebook" target="_blank"></a>
+                                                    <a href="{if strpos($excursion->enlaces->facebook, "http://") == false}http://{/if}{$excursion->enlaces->facebook}" class="facebook" title="Facebook" target="_blank"></a>
                                                 {/if}
                                                 {if $excursion->enlaces->youtube}
-                                                    <a href="{$excursion->enlaces->youtube}" class="youtube" title="Youtube" target="_blank"></a>
+                                                    <a href="{if strpos($excursion->enlaces->youtube, "http://") == false}http://{/if}{$excursion->enlaces->youtube}" class="youtube" title="Youtube" target="_blank"></a>
                                                 {/if}
                                                 {if $excursion->enlaces->web}
-                                                    <a href="{$excursion->enlaces->web}" class="web" title="Web oficial" target="_blank"></a>
+                                                    <a href="{if strpos($excursion->enlaces->web, "http://") == false}http://{/if}{$excursion->enlaces->web}" class="web" title="Web oficial" target="_blank"></a>
                                                 {/if}
                                             </div>
 

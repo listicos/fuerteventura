@@ -10,5 +10,10 @@ $(document).ready(function(){
 		});
 	});
         
-        
+        $('.social-links a.youtube').on('click', function(e){
+            console.log(e);
+            e.preventDefault();
+            $('#youtube_modal .modal-body > div').html('<iframe width="560" height="315" src="' + $(this).attr('href') + '" frameborder="0" allowfullscreen></iframe>');
+            $('#youtube_modal').modal();
+        })
 });

@@ -70,13 +70,13 @@
 
                                             <div class="social-links">
                                                 {if $excursion->enlaces->facebook}
-                                                    <a href="{$excursion->enlaces->facebook}" class="facebook" title="Facebook" target="_blank"></a>
+                                                    <a href="{if strpos($excursion->enlaces->facebook, "http://") == false}http://{/if}{$excursion->enlaces->facebook}" class="facebook" title="Facebook" target="_blank"></a>
                                                 {/if}
                                                 {if $excursion->enlaces->youtube}
-                                                    <a href="{$excursion->enlaces->youtube}" class="youtube" title="Youtube" target="_blank"></a>
+                                                    <a href="{if strpos($excursion->enlaces->youtube, "http://") == false}http://{/if}{$excursion->enlaces->youtube}" class="youtube" title="Youtube" target="_blank"></a>
                                                 {/if}
                                                 {if $excursion->enlaces->web}
-                                                    <a href="{$excursion->enlaces->web}" class="web" title="Web oficial" target="_blank"></a>
+                                                    <a href="{if strpos($excursion->enlaces->web, "http://") == false}http://{/if}{$excursion->enlaces->web}" class="web" title="Web oficial" target="_blank"></a>
                                                 {/if}
                                             </div>
 
@@ -113,15 +113,16 @@
                                 <input type="hidden" name="lat" value="{$excursion->direccion->lat}">
                                 <input type="hidden" name="lon" value="{$excursion->direccion->lon}">
                             </ul>
-                            <p>
-                                {if $excursion->sinopsis->$lang}
-                                    {$excursion->sinopsis->$lang}
-                                {else}
-                                    {$excursion->sinopsis->es}
-                                {/if}
-                            </p>                    
+                                                
                         </div>
                     </div>
+                    <p class="sinopsis-excursion">
+                        {if $excursion->sinopsis->$lang}
+                            {$excursion->sinopsis->$lang}
+                        {else}
+                            {$excursion->sinopsis->es}
+                        {/if}
+                    </p>
                 </div>
                 <div class="col-lg-8">
                     <div class="borderBoxBlue form_reservation clearfix">
@@ -161,6 +162,13 @@
                                       <div class=" row">  
                                         {foreach from=$excursion->tarifas item=tarifa}
                                             {foreach from=$tarifa->zonas item=zona name=zonas}
+
+                                                    {if !$excursion->ventaSimultaneaTickets}
+                                                        <div class="select-tickets">
+                                                            <input type="radio" name="ticket">
+                                                        </div>
+                                                    {/if}
+
                                                     <div class=" tarifa_container" tarifa-id="{$tarifa->id}">
                                                         <div class=" content-right">
                                                             <label class="precio" for="entradas[{$zona->entrada->id}]">

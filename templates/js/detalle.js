@@ -94,11 +94,11 @@ $(document).ready(function(){
         })
     }
     
-    $('.content-title').on('click', function(e){
+    /*$('.content-title').on('click', function(e){
         e.preventDefault();
         var top = $('#payment-register-form').offset().top;
         $('html, body').animate({scrollTop:top}, 500);
-    })
+    })*/
     
     if($('input[name=fechaExpiracion]').length > 0) {
         $('input[name=fechaExpiracion]').datepicker({
@@ -137,6 +137,8 @@ $(document).ready(function(){
     cuponFunction();
     
     rating();
+    
+    selectTicketsFunctions();
 
 });
 
@@ -324,7 +326,7 @@ function calcularTotal() {
     var totalEntradas = 0;
     var totalPrecio = 0;
 
-    $('div.tarifas-table div[tarifa-id="' + tarifa +'"] select').each(function(){
+    $('div.tarifas-table div[tarifa-id="' + tarifa +'"] select:not([disabled=""])').each(function(){
         if(isNumber($(this).val())) {
             $('.second_step_information').slideDown('fast');
             totalEntradas += parseFloat($(this).val());
@@ -487,3 +489,23 @@ function rating() {
     });
 }
 
+function selectTicketsFunctions() {
+    if($('div.select-tickets').length > 0) {
+        selectTicket();
+        $('div.select-tickets input[type=radio]').change(selectTicket)
+    }
+}
+
+function selectTicket() {
+    if($('div.select-tickets input[type=radio]:checked').length == 0)
+            $($('div.select-tickets input[type=radio]')[0]).prop('checked', true);
+    $('div.select-tickets input[type=radio]').each(function(){
+        $(this).parent().parent().find('select').prop('disabled', !$(this).prop('checked'));
+        if($(this).prop('checked')) {
+            $(this).parent().parent().addClass('entrada-selected');
+        } else {
+            $(this).parent().parent().removeClass('entrada-selected');
+        }
+    });
+    calcularTotal();
+}

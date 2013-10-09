@@ -41,7 +41,10 @@
             <div class="news_suscribe">
                 <p>Suscríbete a nuestro boletín ahora para estar actualizado con las novedades.</p>
                 <form id="subscribe_form">          
-                    <input type="text" id="email" value="Correo Electrónico">
+                    <input type="text" id="email" name="email" value="Correo Electrónico" class="validate[required, custom[email]]">
+                    <div class="col-lg-12">
+                        <input type="submit" class="btn btn-warning pull-right" value="Enviar" />
+                    </div>
                 </form>
             </div>
             <div class="content-title mrgTop20">
