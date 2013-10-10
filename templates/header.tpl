@@ -19,7 +19,7 @@
                     <span class="icon-next"></span>
                 </a>
             </div>-->
-            <div class="header_photo_wrapper">
+            <div class="header_photo_wrapper hidden-xs">
               <img src="{$template_url}/imagenes/top.jpg" alt="Photo 1">
             </div>
         </div>
