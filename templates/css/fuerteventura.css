@@ -10,7 +10,7 @@ div.container.global > div.container {
 }
 
 .container.content.fullWhite{
-    background: #D3E6F3;
+    background: #F0F6FA;
         
 }
 .tours-list{
@@ -123,17 +123,17 @@ body{
     text-align: center;
 }
 .nav-tabs>li>a:hover{
-background: #D3E6F3!important;
+background: #F0F6FA!important;
 border:1px solid rgba(0, 0, 0, 0)!important;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
-    background: #D3E6F3!important;
+    background: #F0F6FA!important;
 }
 .nav-tabs>li>a {
 color:#FFF;
 }
 .header .dropdown-menu>li>a:hover{
-    background: #2FA4E7!important;
+    background: #3F6191!important;
 }
 .header-slider .carousel-inner, #parthenon-slider .carousel-inner{
     border:0;
@@ -155,7 +155,7 @@ color:#FFF;
 }
 .content-title p{
     color: #3F6191;
-    font-size: 15px;
+    font-size: 17px;
 }
 .panel-primary>.panel-heading{
     background: #3F6191;
