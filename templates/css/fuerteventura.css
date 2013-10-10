@@ -47,8 +47,8 @@ div.container.global > div.container {
     margin-top: 10px;
 }
 .header-slider .carousel-inner, #parthenon-slider .carousel-inner{
-    -webkit-box-shadow:0 0 2px rgba(66, 139, 202, 0.5);
-    box-shadow:0 0 2px rgba(66, 139, 202, 0.5);
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .sup-header .carousel {

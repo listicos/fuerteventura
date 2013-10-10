@@ -346,10 +346,6 @@
                                        {#entiendo_acepto#} <a id="privacy_policies" href="javascript:void(0)">{#politicas_privacidad#}</a> {#y_las#} <a id="book_conditions" href="javascript:void(0)">{#condiciones_reserva#}</a>
                                    </div>
 
-                                   <div class="checkbox">
-                                       <input type="checkbox" name="aceptoRecibirOfertas">
-                                       {#acepto_recibir#} <strong>vikatickets.com</strong>
-                                   </div>
                                 </div>
                             </div>    
                             <div class="credit-card-section">
