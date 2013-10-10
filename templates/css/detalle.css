@@ -78,7 +78,7 @@
     position: absolute;
     top: 5px;
     right: 5px;
-    background-color: #10798E;
+    background-color: #3F6191;
     color: white;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
     padding: 2px 8px;
@@ -138,7 +138,7 @@ ul.list-in-table li{
 padding: 10px 0;
 text-align: center;
 border-bottom: 1px solid rgba(66, 139, 202, 0.3)!important;
-color: #10798E;
+color: #3F6191;
 margin-bottom: 15px;
 font-size: 19px;
 font-weight: bold;
@@ -297,7 +297,7 @@ div.checks {
 }
 
 .content-title-detalle {
-    color: #10798E;
+    color: #3F6191;
     margin-bottom: 5px;
     overflow-x: hidden;
     overflow-y: hidden;

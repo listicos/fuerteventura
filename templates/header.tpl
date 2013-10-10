@@ -20,15 +20,15 @@
                 </a>
             </div>-->
             <div class="header_photo_wrapper hidden-xs">
-              <img src="{$template_url}/imagenes/top.jpg" alt="Photo 1">
+              <img src="{$template_url}/imagenes/top1.jpg" alt="Photo 1">
             </div>
         </div>
     </div>
     <div class="row-fluid sub-header">
         <div class="row-fluid site-name">
-           
-            <div class="col-sm-6">
-                <div class="menu pull-right">
+           <div class="col-md-3 hidden-xs"></div>
+            <div class="col-xs-10 col-md-7">
+                <div class="menu pull-left">
                    <ul class="nav nav-tabs">
   <li {if strlen($current_uri) == 0}class="active"{/if}><a href="{$base_url}">Inicio</a></li>
   <li {if $current_uri eq 'detalles'}class="active"{/if}><a href="#">Excursiones</a></li>
@@ -37,8 +37,8 @@
 </ul>
                 </div>
             </div>
-              <div class="col-xs-5 col-xs-offset-2">
-              <div class="menu pull-right">
+              <div class="col-xs-2 col-xs-offset-2">
+              <div class="menu pull-left">
              <div class="btn-group">
                        
                           <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
@@ -54,9 +54,6 @@
                          </div>
                         </div>
                  </div>      
-
-            <div class="col-sm-3"></div>
-            <div class="col-sm-3"></div>
         </div>
     </div>
                         

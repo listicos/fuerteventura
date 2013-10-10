@@ -150,3 +150,19 @@ color:#FFF;
 .sup-header{
     height: auto;
 }
+.content-title h2{
+    color: #3F6191;
+}
+.content-title p{
+    color: #3F6191;
+    font-size: 15px;
+}
+.panel-primary>.panel-heading{
+    background: #3F6191;
+}
+.tours-list .tour-item .badge{
+    background: #3F6191;   
+}
+h1,h2,h3,h4,h5,h6{
+    color: #3F6191;
+}

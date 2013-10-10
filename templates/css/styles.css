@@ -305,12 +305,12 @@ body{
     overflow: hidden;
     margin-bottom: 0;
     padding-bottom: 0;
-    color: #10798E;
+    color: #3F6191;
     font-size: 14px;
     text-align: justify;
 }
 .content-title hr.for_double{
-    border-top: 1px solid #10798E;
+    border-top: 1px solid #3F6191;
 }
 .content-title h2, .content-title h3, .content-title h4, .content-title h5{
     margin: 0 0 10px 0;
@@ -324,7 +324,7 @@ body{
 }
 hr.for_double{
     margin: 0 0 5px 0;
-    border-top: 1px dotted #10798E;
+    border-top: 1px dotted #3F6191;
     clear: both;
 }
 .opinions_clear{
@@ -529,7 +529,7 @@ hr.for_double{
     margin-bottom: 0;
 }
 .tweet span{
-    color: #10798E;
+    color: #3F6191;
 }
 .tweets_content hr.for_double{
     margin: 5px 0 5px;
@@ -540,7 +540,7 @@ hr.for_double{
     color: white;
 }
 .footer{
-    background: #10798E;
+    background: #3F6191;
     width: 100%;
     margin: 0px;
     max-width: 100%;

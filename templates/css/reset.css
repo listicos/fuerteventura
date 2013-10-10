@@ -47,7 +47,7 @@ table {
     border-spacing: 0;
 }
 a:hover, a:focus{
-    color: #10798E !important;
+    color: #3F6191 !important;
     text-decoration: none !important;
 }
 a.btn.notHover:hover, a.btn.notHover:focus{
