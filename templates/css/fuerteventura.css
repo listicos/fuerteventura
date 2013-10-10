@@ -10,45 +10,45 @@ div.container.global > div.container {
 }
 
 .container.content.fullWhite{
-	background: #D3E6F3;
+    background: #D3E6F3;
         
 }
 .tours-list{
-	padding-top: 10px;
-	padding-bottom: 10px;
-	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
 }
 .tours-list .tour-item{
-	-webkit-box-shadow: 0 0 10px rgba(66, 139, 202, 0.5);
-	box-shadow: 0 0 10px rgba(66, 139, 202, 0.5);
-	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
-	background: #FFF;
-	margin-bottom: 10px;
-	padding: 7px 10px;
+    -webkit-box-shadow: 0 0 10px rgba(66, 139, 202, 0.5);
+    box-shadow: 0 0 10px rgba(66, 139, 202, 0.5);
+    -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+    background: #FFF;
+    margin-bottom: 10px;
+    padding: 7px 10px;
 }
 .tours-list .tour-item h3{
-	line-height: 24px;
-	padding-bottom: 13px;
+    line-height: 24px;
+    padding-bottom: 13px;
 }
 .tours-list .tour-item .make_a_question{
-	margin-left: 4px;
+    margin-left: 4px;
 }
 .tours-list .tour-item .badge{
-	padding: 5px 13px;
-	background: #568BCE;
+    padding: 5px 13px;
+    background: #568BCE;
 }
 .carousel-control.left{
-	background: transparent;
+    background: transparent;
 }
 .carousel-control.right{
-	background: transparent;
+    background: transparent;
 }
 .carousel{
-	margin-top: 10px;
+    margin-top: 10px;
 }
 .header-slider .carousel-inner, #parthenon-slider .carousel-inner{
-	-webkit-box-shadow:0 0 2px rgba(66, 139, 202, 0.5);
-	box-shadow:0 0 2px rgba(66, 139, 202, 0.5);
+    -webkit-box-shadow:0 0 2px rgba(66, 139, 202, 0.5);
+    box-shadow:0 0 2px rgba(66, 139, 202, 0.5);
 }
 
 .sup-header .carousel {
@@ -79,7 +79,6 @@ div.container.global > div.container {
 }*/
 
 .left-panel {
-    background-color: #ffffff;
     border-radius: 4px;
     padding-bottom: 15px;
     padding-top: 4px;
@@ -100,7 +99,7 @@ div.container.global > div.container {
 }
 
 .search-panel-content{
-	top: 60px;
+    top: 60px;
 }
 
 .hoteles-panel {
@@ -119,7 +118,16 @@ body{
 }
 .filter_box h4{
     border-bottom: 1px solid #CCC;
-	
+    
     padding-bottom: 10px;
     text-align: center;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+    background: #D3E6F3;
+}
+.nav-tabs>li>a {
+color:#FFF;
+}
+.header .dropdown-menu>li>a:hover{
+    background: #2FA4E7!important;
 }

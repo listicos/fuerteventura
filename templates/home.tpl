@@ -53,10 +53,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row-fluid hoteles-panel">
-
-                        <h5>Hoteles recomendados</h5>
-                </div>
             </div>      
              </div>
         <div class="col-lg-9">      
