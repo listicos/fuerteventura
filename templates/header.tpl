@@ -21,6 +21,9 @@
             </div>-->
             <div class="header_photo_wrapper hidden-xs">
               <img src="{$template_url}/imagenes/top1.jpg" alt="Photo 1">
+              <p>fuerteventuraguides.com</p>
+              <span class="contactanos_header">Contactanos</span>
+              <span class="contactanos_number">0034 928 854 198</span>
             </div>
         </div>
     </div>
