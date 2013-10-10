@@ -4,21 +4,8 @@
             <div id="parthenon-slider" class="carousel slide">
                 <div class="carousel-inner detalle_carousel_inner">                    
                     <div class="item active">
-                        <img src="{$template_url}/imagenes/slider1.jpg" alt="Photo 1">
+                        <img src="{$template_url}/imagenes/top.jpg" alt="Photo 1">
                         <div class="carousel-caption">
-
-                        </div>
-                    </div>
-                    <div class="item ">
-                        <img src="{$template_url}/imagenes/slider2.jpg" alt="Photo 1">
-                        <div class="carousel-caption">
-
-                        </div>
-                    </div>
-                    <div class="item ">
-                        <img src="{$template_url}/imagenes/slider3.jpg" alt="Photo 1">
-                        <div class="carousel-caption">
-
                         </div>
                     </div>
                 </div>
