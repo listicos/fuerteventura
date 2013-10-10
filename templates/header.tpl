@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <div class="row-fluid sub-header">
+    <div class="row-fluid sub-header wrapper_box">
         <div class="row-fluid site-name">
            <div class="col-md-3 hidden-xs"></div>
             <div class="col-xs-10 col-md-7">

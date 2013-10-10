@@ -10,7 +10,7 @@
 
 {block name="content" append}
 
-<div class="container content tours fullWhite">
+<div class="container content tours fullWhite wrapper_box">
     <div class="row">
         <div class="col-lg-3 search-panel-content">
             <div class="panel panel-primary borderBoxBlue">

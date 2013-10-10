@@ -1,9 +1,10 @@
 div.container.global {
     padding: 0 !important;
+    background: #F0F6FA;
 }
 
 div.container.global > div.container {
-    width: 100% !important;
+    width: 100%;
     max-width: 100% !important;
     padding: 0 !important;
     border-radius: 0;
@@ -165,4 +166,9 @@ color:#FFF;
 }
 h1,h2,h3,h4,h5,h6{
     color: #3F6191;
+}
+.wrapper_box{
+    width: 90%!important;
+    margin: 0 auto;
+    
 }
