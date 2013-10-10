@@ -38,7 +38,7 @@
               <div class="menu pull-right">
              <div class="btn-group">
                        
-                          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                          <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
                             <span class="lang_text">Español</span>
                           </button>
                           <ul class="dropdown-menu dropdown_lang" role="menu">
