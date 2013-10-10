@@ -141,3 +141,12 @@ color:#FFF;
 .tarifas-table label.precio{
     padding-top: 18px!important;
 }
+.header_photo_wrapper{
+
+}
+.header_photo_wrapper img{
+    width: 100%;
+}
+.sup-header{
+    height: auto;
+}

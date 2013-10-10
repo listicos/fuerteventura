@@ -1,7 +1,7 @@
 <div class="container content header">
     <div class="row-fluid sup-header">
         <div class="row-fluid">
-            <div id="parthenon-slider" class="carousel slide">
+            <!--<div id="parthenon-slider" class="carousel slide">
                 <div class="carousel-inner detalle_carousel_inner">                    
                     <div class="item active">
                         <img src="{$template_url}/imagenes/top.jpg" alt="Photo 1">
@@ -18,6 +18,9 @@
                 <a class="right carousel-control" href="#parthenon-slider" data-slide="next">
                     <span class="icon-next"></span>
                 </a>
+            </div>-->
+            <div class="header_photo_wrapper">
+              <img src="{$template_url}/imagenes/top.jpg" alt="Photo 1">
             </div>
         </div>
     </div>
