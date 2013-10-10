@@ -351,32 +351,7 @@ hr.for_double{
     border: 1px solid #d4d4d4;
     margin-bottom: 5px;
 }
-.opinion_text:after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: -20px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-color: transparent transparent transparent #fff;
-    border-style: solid;
-    border-width: 10px;
-    -webkit-transform: rotate(90deg);
-}
-.opinion_text:before {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: -22px;
-    left: 15px;
-    width: 0;
-    height: 0;
-    border-color: transparent transparent transparent #d4d4d4;
-    border-style: solid;
-    border-width: 11px;
-    -webkit-transform: rotate(90deg);
-}
+
 
 
 #opinions-slider .carousel-caption{

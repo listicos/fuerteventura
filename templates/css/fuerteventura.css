@@ -131,3 +131,9 @@ color:#FFF;
 .header .dropdown-menu>li>a:hover{
     background: #2FA4E7!important;
 }
+.header-slider .carousel-inner, #parthenon-slider .carousel-inner{
+    border:0;
+}
+.tarifas-table label.precio{
+    padding-top: 18px!important;
+}

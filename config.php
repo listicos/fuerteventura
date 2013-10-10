@@ -15,9 +15,9 @@ $reprivatekey = "6LcY-uYSAAAAABRFFQn56OhwJwhDVGciLO6W_KcQ";
 $distribuidor = array(
     'email' => 'excursiones_web@vikatickets.com',
     'password' => '123',
-    'empresaId' => 2,
-    'canalId' => 9,
-    'edificioId' => 10
+    'empresaId' => 3,
+    'canalId' => 1,
+    'edificioId' => 2
 );
 $service_url = "http://localhost/vikatickets";
 ?>

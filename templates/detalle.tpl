@@ -207,7 +207,7 @@
                                                         <input style="margin: 0; width: 90px; padding: 7px 4px;" class="btn-box-text " type="text" name="cupon"  />
                                                     </div>
                                                     <div class="subtotal-cell content-center no-padding">
-                                                        <a id="validar_cupon" class="btn btn-warning notHover" href="javascript:void(0)">{#validar#}</a>
+                                                        <a id="validar_cupon" class="btn btn-warning" href="javascript:void(0)">{#validar#}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -354,8 +354,8 @@
                             </div>    
                             <div class="credit-card-section">
                                 <div class="form-group text-right">
-                                    <a id="reset-reserva" class="btn btn-default notHover" href="javascript:void(0)">{#cancelar#}</a>
-                                    <input id="total_reservar_button" class="btn btn-warning notHover" type="submit" name="" value="✓ Finalizar reserva" />
+                                    <a id="reset-reserva" class="btn btn-default" href="javascript:void(0)">{#cancelar#}</a>
+                                    <input id="total_reservar_button" class="btn btn-warning" type="submit" name="" value="✓ Finalizar reserva" />
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -365,7 +365,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="question-button-container clearfix">
-                        <a id="btn-make-question" class="btn btn-default notHover col-lg-12" href="javascript:void(0)">{#tienes_una_pregunta#}</a>
+                        <a id="btn-make-question" class="btn btn-default col-lg-12" href="javascript:void(0)">{#tienes_una_pregunta#}</a>
                     </div>
 
                     <div class="form-group clearfix" id="question-container">
@@ -377,8 +377,8 @@
                                 <div class="col-lg-12"><div class="form-group"><input class="validate[required, custom[email]]" type="text" name="email" placeholder="{#correo_electronico#}"></div></div>
                                 <div class="col-lg-12"><div class="form-group"><textarea class="validate[required]" name="message" placeholder="{#mensaje#}"></textarea></div></div>
                                 <div class="col-lg-3"></div>
-                                <div class="col-lg-9"><a id="btn-make-question-close" class="btn btn-default notHover " href="javascript:void(0)">{#cerrar#}</a>
-                                <a id="btn-make-question-send" class="btn btn-warning notHover" href="javascript:void(0)">{#enviar_pregunta#}</a></div>
+                                <div class="col-lg-9"><a id="btn-make-question-close" class="btn btn-default " href="javascript:void(0)">{#cerrar#}</a>
+                                <a id="btn-make-question-send" class="btn btn-warning" href="javascript:void(0)">{#enviar_pregunta#}</a></div>
                             </div>
                         </form>
                     </div>
@@ -506,7 +506,7 @@
                             </div>
                         </div>
                         <div>
-                            <a href="{$base_url}/detalle/id:{$otraexcursion->id}/{$otraexcursion->tituloSeo}" class="btn btn-warning notHover" >¡Lo quiero!</a>
+                            <a href="{$base_url}/detalle/id:{$otraexcursion->id}/{$otraexcursion->tituloSeo}" class="btn btn-warning" >¡Lo quiero!</a>
                         </div>
                     </div>
                     {/if}
