@@ -317,7 +317,6 @@ body{
 }
 .content .row, .content-block {
     padding: 2.5em 0 3em 0;
-    max-width: 1283px;
     margin: 0 auto;
     /*position: relative;
     z-index: 100;*/

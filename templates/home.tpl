@@ -60,11 +60,6 @@
                 <div class="content-title col-lg-12">
                     <h2>Las mejores aventuras de Fuerteventura al mejor precio.</h2>
                     <p>Ven y disfruta de la isla mas salvaje y natural de Canarias con nuestras excursiones y eventos.</p>
-                    <p>{if $edificio && $edificio->descripcion->$lang}
-                            {$edificio->descripcion->$lang->descripcion}
-                        {else}
-                            {$edificio->descripcion->es->descripcion}
-                        {/if}</p>
                 </div>
             </div>
                 

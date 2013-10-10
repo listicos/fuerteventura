@@ -38,7 +38,7 @@
                 </div>
             </div>
               <div class="col-xs-2 col-xs-offset-2">
-              <div class="menu pull-left">
+              <div class="menu pull-right">
              <div class="btn-group">
                        
                           <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
