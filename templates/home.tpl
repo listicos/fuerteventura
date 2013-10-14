@@ -10,9 +10,9 @@
 
 {block name="content" append}
 
-<div class="container content tours fullWhite wrapper_box">
-    <div class="row">
-        <div class="col-lg-3 search-panel-content">
+<div class="container content tours fullWhite">
+    <div class="row wrapper_box">
+        <div class="col-md-3 search-panel-content">
             <div class="panel panel-primary borderBoxBlue">
                 <div class="panel-heading">
                     <h3 class="panel-title">{#cuando_quieres_ir#}</h3>
@@ -47,7 +47,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-12 left-panel">
+            <div class="col-md-12 left-panel hidden-xs hidden-sm">
                 <div class="row-fluid">
                     <div class="weather-container borderBoxBlue">
                         <div id="weatherslider">
@@ -59,10 +59,10 @@
                 </div>
             </div>      
              </div>
-        <div class="col-lg-9">      
+        <div class="col-md-9">      
             <div class="row" style="padding-bottom: 0; padding-top: 5px;">
-                <div class="content-title col-lg-12">
-                    <h2>Las mejores aventuras de Fuerteventura al mejor precio.</h2>
+                <div class="col-md-12">
+                    <h2 style="margin-top:0px">Las mejores aventuras de Fuerteventura al mejor precio.</h2>
                     <p>Ven y disfruta de la isla mas salvaje y natural de Canarias con nuestras excursiones y eventos.</p>
                 </div>
             </div>
@@ -70,7 +70,7 @@
             <div class="tours-list">
                 {foreach from=$excursiones item=excursion name=loop_excursiones}
                 <div class="row tour-item tipologia-{$excursion->tipologiaId}">
-                    <div class="col-lg-5 no-padding">
+                    <div class="col-md-5">
                         <div id="header-slider-{$smarty.foreach.loop_excursiones.iteration}" class="header-slider carousel slide">
                             <div class="carousel-inner home_carousel_inner">
                                 {if $excursion->imagenes}
@@ -102,15 +102,15 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-md-7">
                         <div class="content-title">
                             <h3>
-                                <div style="float:left;">
+                                <div>
                                 <a href="{$base_url}/detalle/id:{$excursion->id}/{$excursion->tituloSeo|replace:" ":"%20"}" class="title-link-reservar" >
                                     <i style="float:left;">{$excursion->nombre}</i>                                    
                                 </a>
                                 </div>
-                                <div class="tabla float-right">
+                                <div class="tabla social_container_home">
                                     <div>
                                         {if $excursion->enlaces->facebook || $excursion->enlaces->twitter || $excursion->enlaces->youtube || $excursion->enlaces->skype }
 
@@ -197,9 +197,9 @@
             <div class="modal-body">
                 <form id="make-question-form">
                     <div class="row contact-for-inner">
-                        <div class="col-lg-6"><div class="form-group"><input type="text" name="name" placeholder="Nombre completo"></div></div>
-                        <div class="col-lg-6"><div class="form-group"><input type="text" name="email" placeholder="Correo electrónico"></div></div>
-                        <div class="col-lg-12"><div class="form-group"><textarea name="message" placeholder="Mensaje"></textarea></div></div>
+                        <div class="col-md-6"><div class="form-group"><input type="text" name="name" placeholder="Nombre completo"></div></div>
+                        <div class="col-md-6"><div class="form-group"><input type="text" name="email" placeholder="Correo electrónico"></div></div>
+                        <div class="col-md-12"><div class="form-group"><textarea name="message" placeholder="Mensaje"></textarea></div></div>
                     </div>
                 </form>
             </div>

@@ -15,7 +15,7 @@
 
 
 <div class="container content contact fullWhite">
-    <div class="row">
+    <div class="row wrapper_box">
 
         <div class="col-lg-8">
             <form id="contact-form">

@@ -24,8 +24,7 @@ function initialize() {
 function showRecaptcha() {
     Recaptcha.create("6LcY-uYSAAAAACBIaBBmfEdbYqJxCkDdtOONaeIE", 'captchadiv', {
         tabindex: 1,
-        theme: "clean",
-        callback: Recaptcha.focus_response_field
+        theme: "clean"
     });
 }
 $(document).ready(function(){
