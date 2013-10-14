@@ -200,5 +200,10 @@ h1,h2,h3,h4,h5,h6{
 .wrapper_box{
     width: 90%!important;
     margin: 0 auto;
-    
+    max-width: 1300px;
+}
+@media screen and (max-width: 992px) {
+    .search-panel-content {
+    top: 0;
+    }
 }
