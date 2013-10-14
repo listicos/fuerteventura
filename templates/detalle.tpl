@@ -171,7 +171,8 @@
                                                         {/if}
                                                         <div class=" content-right">
                                                             <label class="precio" for="entradas[{$zona->entrada->id}]">
-                                                                [{$zona->entrada->descripcion}] <strong>{$zona->entrada->nombre}</strong>
+                                                                [{if $zona->entrada->descripcion->$lang && strlen($zona->entrada->descripcion->$lang) > 0}{$zona->entrada->descripcion->$lang}{else}{$zona->entrada->descripcion->es}{/if}] 
+                                                                <strong>{if $zona->entrada->nombre->$lang && strlen($zona->entrada->nombre->$lang) > 0}{$zona->entrada->nombre->$lang}{else}{$zona->entrada->nombre->es}{/if}</strong>
                                                            </label>
                                                            </div>
                                                            <div class="select-cell no-padding">
@@ -545,7 +546,7 @@
                         {if !$smarty.foreach.filas.first}
                             <tr>
                         {/if}
-                        <td>{$zona->entrada->nombre}</td>
+                        <td>{$zona->entrada->nombre->lang}</td>
                         <td>{$zona->entradas}</td>
                         <td>&euro; {$zona->precio|number_format:2:',':'.'}&euro;</td>
                         <td>{$zona->descuento} {$zona->descuentoTipo}</td>

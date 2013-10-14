@@ -35,7 +35,11 @@
                     <li>
                       <label class="checkbox ">
                         <input type="checkbox" id="room_type_0" name="room_types" value="{$t['tipologia']->id}">
-                        {$t['tipologia']->nombre}
+                        {if $t['tipologia']->nombre->$lang && strlen($t['tipologia']->nombre->$lang) > 0}
+                            {$t['tipologia']->nombre->$lang}
+                        {else}
+                            {$t['tipologia']->nombre->es}
+                        {/if}
                         <span class="badge pull-right">{$t['cantidad']}</span>
                       </label>
                     </li>
