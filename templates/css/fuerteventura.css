@@ -202,6 +202,21 @@ h1,h2,h3,h4,h5,h6{
     margin: 0 auto;
     max-width: 1280px;
 }
+.dropdown-menu{
+    left:auto;
+    right:0px;
+}
+.menu .btn.dropdown-toggle{
+    background: transparent;
+    color: #FFF;
+
+}
+.menu .btn.dropdown-toggle:hover {
+background: #F0F6FA!important;
+border: 1px solid rgba(0, 0, 0, 0)!important;
+border-color: #EEE #EEE #DDD;
+color: #376291;
+}
 @media screen and (max-width: 992px) {
     .search-panel-content {
     top: 0;
@@ -227,6 +242,6 @@ h1,h2,h3,h4,h5,h6{
             width: 100%!important;
         }
         .nav>li>a{
-            padding: 10px 9px;
+            padding: 10px 6px;
         }
 }
