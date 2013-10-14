@@ -155,7 +155,6 @@ font-weight: bold;
     margin-top: 12px;
     padding: 13px;
     color: #777;
-    background: #FFF;
 }
 .second_step_information{
     display: none;
@@ -290,7 +289,6 @@ div.checks {
 }
 
 .form_reservation{
-    background:#FFF;
 }
 #details-map-location{
     border: 1px solid rgba(66, 139, 202, 0.3) !Important;

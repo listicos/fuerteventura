@@ -15,7 +15,7 @@
 {/block}
 
 {block name="content" append}
-<div class="container content home fullWhite" style="background-color: #ffffff; font-size: 14px;">
+<div class="wrapper_box content home fullWhite" style="font-size: 14px;">
     <div class="row">
         <div class="col-lg-12 mrg-btn-20">
             <div class="row-fluid">
