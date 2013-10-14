@@ -19,6 +19,9 @@ div.container.global > div.container {
     background: #F0F6FA;
         
 }
+.title-link-reservar{
+    font-size: 21px;
+}
 .tours-list{
     padding-top: 10px;
     padding-bottom: 10px;
