@@ -101,12 +101,12 @@
                     <div class="col-md-7">
                         <div class="content-title">
                             <h3>
-                                <div style="float:left;">
+                                <div>
                                 <a href="{$base_url}/detalle/id:{$excursion->id}/{$excursion->tituloSeo|replace:" ":"%20"}" class="title-link-reservar" >
                                     <i style="float:left;">{$excursion->nombre}</i>                                    
                                 </a>
                                 </div>
-                                <div class="tabla float-right">
+                                <div class="tabla social_container_home">
                                     <div>
                                         {if $excursion->enlaces->facebook || $excursion->enlaces->twitter || $excursion->enlaces->youtube || $excursion->enlaces->skype }
 

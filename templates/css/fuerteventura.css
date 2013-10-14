@@ -9,7 +9,12 @@ div.container.global > div.container {
     padding: 0 !important;
     border-radius: 0;
 }
-
+.social_container_home{
+    clear: both;
+}
+.social_container_home .social-links{
+    padding: 0px;
+}
 .container.content.fullWhite{
     background: #F0F6FA;
         
@@ -28,8 +33,7 @@ div.container.global > div.container {
     padding: 7px 10px;
 }
 .tours-list .tour-item h3{
-    line-height: 24px;
-    padding-bottom: 13px;
+    line-height: 33px;
 }
 .tours-list .tour-item .make_a_question{
     margin-left: 4px;
