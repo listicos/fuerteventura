@@ -209,7 +209,6 @@ h1,h2,h3,h4,h5,h6{
 .menu .btn.dropdown-toggle{
     background: transparent;
     color: #FFF;
-
 }
 .menu .btn.dropdown-toggle:hover {
 background: #F0F6FA!important;
@@ -218,11 +217,19 @@ border-color: #EEE #EEE #DDD;
 color: #376291;
 }
 @media screen and (max-width: 992px) {
+    .menu .btn.dropdown-toggle{
+    padding: 7px 8px;
+    font-size: 13px;
+    margin-top: 3px;
+    }
     .search-panel-content {
     top: 0;
     }
     .header_photo_wrapper p{
         font-size: 31px;
+    }
+    h2{
+        font-size: 22px;
     }
     .header_photo_wrapper .contactanos_header {
         position: absolute;

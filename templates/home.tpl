@@ -58,7 +58,7 @@
         <div class="col-md-9">      
             <div class="row" style="padding-bottom: 0; padding-top: 5px;">
                 <div class="col-md-12">
-                    <h2>Las mejores aventuras de Fuerteventura al mejor precio.</h2>
+                    <h2 style="margin-top:0px">Las mejores aventuras de Fuerteventura al mejor precio.</h2>
                     <p>Ven y disfruta de la isla mas salvaje y natural de Canarias con nuestras excursiones y eventos.</p>
                 </div>
             </div>
