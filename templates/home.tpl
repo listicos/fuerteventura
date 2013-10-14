@@ -66,7 +66,7 @@
             <div class="tours-list">
                 {foreach from=$excursiones item=excursion name=loop_excursiones}
                 <div class="row tour-item tipologia-{$excursion->tipologiaId}">
-                    <div class="col-md-5 no-padding">
+                    <div class="col-md-5">
                         <div id="header-slider-{$smarty.foreach.loop_excursiones.iteration}" class="header-slider carousel slide">
                             <div class="carousel-inner home_carousel_inner">
                                 {if $excursion->imagenes}

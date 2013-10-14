@@ -225,7 +225,10 @@ color: #376291;
 }
 @media screen and (max-width: 992px) {
     .content-title{
-        margin-top: 15px
+        margin-top: 15px;
+    }
+    .tours-list .content-title{
+        margin-top: 0px;
     }
     .menu .btn.dropdown-toggle{
     padding: 7px 8px;
@@ -235,11 +238,17 @@ color: #376291;
     .search-panel-content {
     top: 0;
     }
+    .title-link-reservar{
+        font-size: 18px;
+    }
     .header_photo_wrapper p{
         font-size: 31px;
     }
     h2{
         font-size: 22px;
+    }
+    .tours-list .tour-item .make_a_question{
+        font-size: 11px;
     }
     .header_photo_wrapper .contactanos_header {
         position: absolute;
