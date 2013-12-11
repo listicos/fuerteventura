@@ -236,7 +236,21 @@ function reservacionFunctions() {
     });
     
     fechasTarifasFunctions();
-    
+    sesionesFunctions();
+}
+
+function sesionesFunctions() {
+    $('#sesion').off('change').on('change', function(){
+        tarifa = $('#sesion option:selected').attr('tarifa');
+        if(tarifa != $('#tarifa').val()) {
+            $('#tarifa option:not([value="' + tarifa + '"])').hide();
+            $('#tarifa option[value="' + tarifa + '"]').show().prop('selected', true);
+
+            $('#tarifa').val(tarifa);
+            MostrarEntradas();
+            calcularTotal();
+        }
+    })
 }
 
 function fechasTarifasFunctions() {
@@ -249,37 +263,44 @@ function fechasTarifasFunctions() {
             d = (_d);
         
         var fecha = d + '/' + m + '/' + y;
-        var tarifa = $('.fechasTarifas:contains(' + fecha +')').attr('tarifa-id');
+        var tarifas = $('.fechasTarifas:contains(' + fecha +')');
+        $('p.horaSeleccionada select', '.calendar2').html('');
+        tarifas.each(function(i){
+            tarifa = $(this).attr('tarifa-id');
         
-        $('input[name=fecha]').val(fecha);
-        $('#tarifas-table').show();
-        $('#tarifa option:not([value="' + tarifa + '"])').hide();
-        $('#tarifa option[value="' + tarifa + '"]').show().prop('selected', true);
-        
-        $('#tarifa').val(tarifa);
-        MostrarEntradas();
-        calcularTotal();
-        
-        var Months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-                      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-                  
-        var fechaMostrar = d + " de " + Months[_m - 1] + ", " + y;
-        $('.calendar2 p.seleccionaFecha').hide();
-        $('.calendar2 p.fechaSeleccionada span').html(fechaMostrar);
-        $('p.completaAhora, p.fechaSeleccionada', '.calendar2').show();
-        
-        var sesiones = $('.sesionesTarifas[tarifa-id=' + tarifa + ']').html();
-        if(sesiones.trim().length > 0) {
-            $('p.horaSeleccionada select', '.calendar2').prop('disabled', false).html('');
-            sesiones = sesiones.split(',');
-            for(i=0;i<sesiones.length; i++) {
-                $('p.horaSeleccionada select', '.calendar2').append('<option value="' + sesiones[i].trim() + '">' + sesiones[i].trim() + '</option>');
+            $('input[name=fecha]').val(fecha);
+            $('#tarifas-table').show();
+            
+            if(i == 0) {
+                $('#tarifa option:not([value="' + tarifa + '"])').hide();
+                $('#tarifa option[value="' + tarifa + '"]').show().prop('selected', true);
+
+                $('#tarifa').val(tarifa);
+                MostrarEntradas();
+                calcularTotal();
+
+                var Months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                              'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+                var fechaMostrar = d + " de " + Months[_m - 1] + ", " + y;
+                $('.calendar2 p.seleccionaFecha').hide();
+                $('.calendar2 p.fechaSeleccionada span').html(fechaMostrar);
+                $('p.completaAhora, p.fechaSeleccionada', '.calendar2').show();
             }
-            $('p.horaSeleccionada', '.calendar2').show();
-        } else {
-            $('p.horaSeleccionada', '.calendar2').hide();
-            $('p.horaSeleccionada select', '.calendar2').prop('disabled', true);
-        }
+            var sesiones = $('.sesionesTarifas[tarifa-id=' + tarifa + ']').html();
+            if(sesiones.trim().length > 0) {
+                $('p.horaSeleccionada select', '.calendar2').prop('disabled', false);
+                sesiones = sesiones.split(',');
+                for(i=0;i<sesiones.length; i++) {
+                    $('p.horaSeleccionada select', '.calendar2').append('<option value="' + sesiones[i].trim() + '" tarifa="' + tarifa +'">' + sesiones[i].trim() + '</option>');
+                }
+                $('p.horaSeleccionada', '.calendar2').show();
+            } else {
+                $('p.horaSeleccionada', '.calendar2').hide();
+                $('p.horaSeleccionada select', '.calendar2').prop('disabled', true);
+            }
+        })
+        
         
     });
     
@@ -317,6 +338,7 @@ function MostrarEntradas() {
         $('.tarifas-table .alert').slideUp('fast');
         $('div.tarifas-table .tarifa_container[tarifa-id="' + tarifa +'"]').show().find('select').prop('disabled', false);
         $('div.tarifas-table .tarifa_container:not([tarifa-id="' + tarifa +'"])').hide().find('select').prop('disabled', true);
+        $('div.tarifas-table .tarifa_container[tarifa-id="' + tarifa +'"] input[type=radio]').first().prop('checked', true).change();
     }
 }
 
